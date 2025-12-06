@@ -10,6 +10,7 @@ const std::string RESOURCES_PATH = "Resources/";
 
 int main()
 {
+	using namespace SnakeGame;
 	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SnakeGame");
 
 	Game game;
