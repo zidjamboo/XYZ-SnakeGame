@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "Game/Game.h"
 #include "Constants.h"
 
 const std::string RESOURCES_PATH = "Resources/";
@@ -11,6 +12,9 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SnakeGame");
 
+	Game game;
+
+	InitGame(game);
 
 	while (window.isOpen())
 	{
@@ -21,8 +25,8 @@ int main()
 				window.close();
 		}
 
-		window.clear();
-		window.display();
+		UpdateGame(game);
+		DrawGame(game, window);
 	}
 
 	return 0;
