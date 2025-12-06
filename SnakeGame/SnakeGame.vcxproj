@@ -236,11 +236,17 @@
       <AdditionalIncludeDirectories>D:\Development\XYZ\Lessons\SnakeGame\\SFML\SFML-2.5.1\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="GameState\MainMenuState.cpp" />
+    <ClCompile Include="GameState\PauseState.cpp" />
+    <ClCompile Include="GameState\PlayingState.cpp" />
     <ClCompile Include="Game\Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
     <ClInclude Include="GameState\GameState.h" />
+    <ClInclude Include="GameState\MainMenuState.h" />
+    <ClInclude Include="GameState\PauseState.h" />
+    <ClInclude Include="GameState\PlayingState.h" />
     <ClInclude Include="Game\Game.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -19,6 +19,8 @@ int main()
 
 	while (window.isOpen())
 	{
+		sf::sleep(sf::milliseconds(16));
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{

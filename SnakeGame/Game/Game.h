@@ -16,6 +16,7 @@ namespace SnakeGame
     void UpdateGame(Game& game);
     void DrawGame(Game& game, sf::RenderWindow& window);
 
-    void PushGameState(Game& game, GameState& state);
+    void PushGameState(Game& game, GameState state);
+    GameState TopGameState(Game& game);
     void PopGameState(Game& game);
 }

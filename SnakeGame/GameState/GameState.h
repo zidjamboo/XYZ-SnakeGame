@@ -1,5 +1,10 @@
 ﻿#pragma once
 #include <cstdint>
+#include <SFML/Graphics.hpp>
+
+#include "MainMenuState.h"
+#include "PauseState.h"
+#include "PlayingState.h"
 
 namespace SnakeGame
 {
@@ -18,19 +23,19 @@ namespace SnakeGame
 
         GameState(State state) : state(state) {}
 
-        void onActive()
+        void onActive() const
         {
             if (state == State::MAIN_MENU)
             {
-
+                MainMenuState::onActive();
             }
             else if (state == State::PAUSE)
             {
-
+                PauseState::onActive();
             }
             else if (state == State::PLAYING)
             {
-
+                PlayingState::onActive();
             }
             else if (state == State::GAME_FINISH)
             {
@@ -38,19 +43,19 @@ namespace SnakeGame
             }
         }
 
-        void onUpdate(Game& game)
+        void onUpdate(Game& game) const
         {
             if (state == State::MAIN_MENU)
             {
-
+                MainMenuState::onUpdate(game);
             }
             else if (state == State::PAUSE)
             {
-
+                PauseState::onUpdate(game);
             }
             else if (state == State::PLAYING)
             {
-
+                PlayingState::onUpdate(game);
             }
             else if (state == State::GAME_FINISH)
             {
@@ -58,19 +63,19 @@ namespace SnakeGame
             }
         }
 
-        void onDraw(Game& game)
+        void onDraw(Game& game, sf::RenderWindow& window) const
         {
             if (state == State::MAIN_MENU)
             {
-
+                MainMenuState::onDraw(game, window);
             }
             else if (state == State::PAUSE)
             {
-
+                PauseState::onDraw(game, window);
             }
             else if (state == State::PLAYING)
             {
-
+                PlayingState::onDraw(game, window);
             }
             else if (state == State::GAME_FINISH)
             {
@@ -78,19 +83,19 @@ namespace SnakeGame
             }
         }
 
-        void onDeactive()
+        void onInactive() const
         {
             if (state == State::MAIN_MENU)
             {
-
+                MainMenuState::onInactive();
             }
             else if (state == State::PAUSE)
             {
-
+                PauseState::onInactive();
             }
             else if (state == State::PLAYING)
             {
-
+                PlayingState::onInactive();
             }
             else if (state == State::GAME_FINISH)
             {
