@@ -2,20 +2,15 @@
 // Authored by Aleksandr Rybalka (polterageist@gmail.com)
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
+
+#include "Constants.h"
 
 const std::string RESOURCES_PATH = "Resources/";
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(330, 400), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SnakeGame");
 
-	sf::Texture logo;
-	if (!logo.loadFromFile(RESOURCES_PATH + "xyz-logo.png"))
-	{
-		return EXIT_FAILURE;
-	}
-	sf::Sprite logo_sprite(logo);
 
 	while (window.isOpen())
 	{
@@ -27,7 +22,6 @@ int main()
 		}
 
 		window.clear();
-		window.draw(logo_sprite);
 		window.display();
 	}
 
