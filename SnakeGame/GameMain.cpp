@@ -5,6 +5,7 @@
 
 #include "Game/Game.h"
 #include "Constants.h"
+#include "Utils/KeyboardHelper.h"
 
 const std::string RESOURCES_PATH = "Resources/";
 
@@ -27,7 +28,7 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-
+		HandleKeysUnpress();
 		UpdateGame(game);
 		DrawGame(game, window);
 	}

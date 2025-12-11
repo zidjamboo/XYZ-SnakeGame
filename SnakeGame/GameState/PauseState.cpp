@@ -1,6 +1,7 @@
 ﻿#include "PauseState.h"
 
 #include "../Game/Game.h"
+#include "../Utils/KeyboardHelper.h"
 
 void SnakeGame::PauseState::onActive()
 {
@@ -8,7 +9,7 @@ void SnakeGame::PauseState::onActive()
 
 void SnakeGame::PauseState::onUpdate(Game& game)
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    if (isKeyPressed(sf::Keyboard::Escape))
     {
         PopGameState(game);
     }
