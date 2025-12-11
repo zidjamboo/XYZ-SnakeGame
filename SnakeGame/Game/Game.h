@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "../GameState/GameState.h"
+#include "../View/BackGround.h"
 
 namespace SnakeGame
 {
@@ -10,6 +11,8 @@ namespace SnakeGame
     struct Game
     {
         std::stack<GameState> stateStack;
+
+        Background background;
     };
 
     void InitGame(Game& game);

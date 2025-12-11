@@ -17,12 +17,7 @@ void SnakeGame::PlayingState::onUpdate(Game& game)
 
 void SnakeGame::PlayingState::onDraw(Game& game, sf::RenderWindow& window)
 {
-    sf::RectangleShape rect;
-    rect.setPosition(50.f, 50.f);
-    rect.setSize({50.f, 50.f});
-    rect.setFillColor(sf::Color::Green);
-
-    window.draw(rect);
+    window.draw(game.background.sprite);
 }
 
 void SnakeGame::PlayingState::onInactive()

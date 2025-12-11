@@ -241,6 +241,7 @@
     <ClCompile Include="GameState\PlayingState.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Utils\KeyboardHelper.cpp" />
+    <ClCompile Include="View\BackGround.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h" />
@@ -250,6 +251,7 @@
     <ClInclude Include="GameState\PlayingState.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Utils\KeyboardHelper.h" />
+    <ClInclude Include="View\BackGround.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
