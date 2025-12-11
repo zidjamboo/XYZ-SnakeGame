@@ -1,9 +1,11 @@
 ﻿#pragma once
+#include <list>
 #include <stack>
 #include <SFML/Graphics.hpp>
 
 #include "../GameState/GameState.h"
 #include "../View/BackGround.h"
+#include "../Actor/Snake/Snake.h"
 
 namespace SnakeGame
 {
@@ -13,9 +15,12 @@ namespace SnakeGame
         std::stack<GameState> stateStack;
 
         Background background;
+
+        std::list<SnakePart> snake;
     };
 
     void InitGame(Game& game);
+    void RestartGame(Game& game);
     void UpdateGame(Game& game);
     void DrawGame(Game& game, sf::RenderWindow& window);
 

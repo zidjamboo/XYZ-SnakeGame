@@ -11,6 +11,15 @@ namespace SnakeGame
         InitBackground(game);
     }
 
+    void RestartGame(Game& game)
+    {
+        game.snake.clear();
+        SnakePart head;
+        head.position.x = 16;
+        head.position.y = 12;
+        game.snake.emplace_front(head);
+    }
+
     void UpdateGame(Game& game)
     {
         TopGameState(game).onUpdate(game);

@@ -18,6 +18,7 @@ void SnakeGame::PlayingState::onUpdate(Game& game)
 void SnakeGame::PlayingState::onDraw(Game& game, sf::RenderWindow& window)
 {
     window.draw(game.background.sprite);
+    DrawSnake(game, window);
 }
 
 void SnakeGame::PlayingState::onInactive()
