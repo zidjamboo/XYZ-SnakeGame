@@ -1,8 +1,8 @@
 ﻿#include "PlayingState.h"
 
-#include "../Game/Game.h"
-#include "../Actor/Snake/SnakeController.h"
-#include "../Utils/KeyboardHelper.h"
+#include "../Game.h"
+#include "../../Actor/Snake/SnakeController.h"
+#include "../../Utils/KeyboardHelper.h"
 
 namespace
 {

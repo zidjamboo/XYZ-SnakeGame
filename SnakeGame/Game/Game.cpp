@@ -1,7 +1,5 @@
 ﻿#include "Game.h"
 
-#include "../Constants.h"
-
 namespace SnakeGame
 {
     void InitGame(Game& game)

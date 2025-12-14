@@ -1,6 +1,6 @@
 ﻿#include "MainMenuState.h"
 
-#include "../Game/Game.h"
+#include "../Game.h"
 
 void SnakeGame::MainMenuState::onActive()
 {

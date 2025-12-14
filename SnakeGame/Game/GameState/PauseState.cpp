@@ -1,7 +1,7 @@
 ﻿#include "PauseState.h"
 
-#include "../Game/Game.h"
-#include "../Utils/KeyboardHelper.h"
+#include "../Game.h"
+#include "../../Utils/KeyboardHelper.h"
 
 void SnakeGame::PauseState::onActive()
 {

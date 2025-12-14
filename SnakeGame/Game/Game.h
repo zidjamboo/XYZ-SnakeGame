@@ -2,7 +2,7 @@
 #include <stack>
 #include <SFML/Graphics.hpp>
 
-#include "../GameState/GameState.h"
+#include "GameState/GameState.h"
 #include "../View/BackGround.h"
 #include "../Actor/Snake/Snake.h"
 #include "../Actor/Apple/Apple.h"
