@@ -13,11 +13,8 @@ namespace SnakeGame
 
     void RestartGame(Game& game)
     {
-        game.snake.parts.clear();
-        SnakePart head;
-        head.position.x = 16;
-        head.position.y = 12;
-        game.snake.parts.emplace_front(head);
+        InitSnake(game.snake);
+        InitApple(game.apple);
     }
 
     void UpdateGame(Game& game, const float& deltaTime)

@@ -1,11 +1,11 @@
 ﻿#pragma once
-#include <list>
 #include <stack>
 #include <SFML/Graphics.hpp>
 
 #include "../GameState/GameState.h"
 #include "../View/BackGround.h"
 #include "../Actor/Snake/Snake.h"
+#include "../Actor/Apple/Apple.h"
 
 namespace SnakeGame
 {
@@ -17,6 +17,7 @@ namespace SnakeGame
         Background background;
 
         Snake snake;
+        Apple apple;
     };
 
     void InitGame(Game& game);

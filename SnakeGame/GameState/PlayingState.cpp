@@ -44,7 +44,8 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime)
 void SnakeGame::PlayingState::onDraw(Game& game, sf::RenderWindow& window)
 {
     window.draw(game.background.sprite);
-    DrawSnake(game, window);
+    DrawSnake(game.snake, window);
+    DrawApple(game.apple, window);
 }
 
 void SnakeGame::PlayingState::onInactive()

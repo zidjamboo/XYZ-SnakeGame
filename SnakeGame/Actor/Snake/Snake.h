@@ -1,15 +1,14 @@
 ﻿#pragma once
 #include <list>
-#include <SFML/System/Vector2.hpp>
 #include <SFML/Graphics.hpp>
 #include "Direction.h"
+#include "../../Types.h"
 
-typedef sf::Vector2<int> SnakePartPosition;
 namespace SnakeGame
 {
     struct SnakePart
     {
-        SnakePartPosition position;
+        FieldPosition position;
     };
 
     struct Snake
@@ -25,5 +24,6 @@ namespace SnakeGame
 
     struct Game;
 
-    void DrawSnake(Game& game, sf::RenderWindow & window);
+    void InitSnake(Snake& snake);
+    void DrawSnake(const Snake& snake, sf::RenderWindow & window);
 }

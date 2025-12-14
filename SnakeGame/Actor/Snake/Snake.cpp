@@ -1,11 +1,19 @@
 ﻿#include "Snake.h"
 
 #include "../../Constants.h"
-#include "../../Game/Game.h"
 
-void SnakeGame::DrawSnake(Game& game, sf::RenderWindow& window)
+void SnakeGame::InitSnake(Snake& snake)
 {
-    for (auto& part: game.snake.parts)
+    snake.parts.clear();
+    SnakePart head;
+    head.position.x = 16;
+    head.position.y = 12;
+    snake.parts.emplace_front(head);
+}
+
+void SnakeGame::DrawSnake(const Snake& snake, sf::RenderWindow& window)
+{
+    for (auto& part: snake.parts)
     {
         sf::RectangleShape rect;
         rect.setSize({CELL_SIZE, CELL_SIZE});
