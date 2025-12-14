@@ -21,7 +21,7 @@ namespace SnakeGame
 
     void InitGame(Game& game);
     void RestartGame(Game& game);
-    void UpdateGame(Game& game);
+    void UpdateGame(Game& game, const float& deltaTime);
     void DrawGame(Game& game, sf::RenderWindow& window);
 
     void PushGameState(Game& game, GameState state);

@@ -7,7 +7,7 @@ namespace SnakeGame
     namespace MainMenuState
     {
         void onActive();
-        void onUpdate(Game& game);
+        void onUpdate(Game& game, const float& deltaTime);
         void onDraw(Game& game, sf::RenderWindow& window);
         void onInactive();
     }

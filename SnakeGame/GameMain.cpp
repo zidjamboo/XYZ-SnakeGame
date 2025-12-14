@@ -14,6 +14,10 @@ int main()
 	using namespace SnakeGame;
 	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SnakeGame");
 
+	sf::Clock clock;
+	float lastTime = clock.getElapsedTime().asSeconds();
+	float currentTime, deltaTime;
+
 	Game game;
 
 	InitGame(game);
@@ -29,8 +33,13 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
+
+		currentTime = clock.getElapsedTime().asSeconds();
+		deltaTime = currentTime - lastTime;
+		lastTime = currentTime;
+
 		HandleKeysUnpress();
-		UpdateGame(game);
+		UpdateGame(game, deltaTime);
 		DrawGame(game, window);
 	}
 

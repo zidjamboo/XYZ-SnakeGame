@@ -20,9 +20,9 @@ namespace SnakeGame
         game.snake.emplace_front(head);
     }
 
-    void UpdateGame(Game& game)
+    void UpdateGame(Game& game, const float& deltaTime)
     {
-        TopGameState(game).onUpdate(game);
+        TopGameState(game).onUpdate(game, deltaTime);
     }
 
     void DrawGame(Game& game, sf::RenderWindow& window)

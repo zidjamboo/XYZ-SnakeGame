@@ -8,7 +8,7 @@ namespace SnakeGame
     namespace PlayingState
     {
         void onActive();
-        void onUpdate(Game& game);
+        void onUpdate(Game& game, const float& deltaTime);
         void onDraw(Game& game, sf::RenderWindow& window);
         void onInactive();
     }

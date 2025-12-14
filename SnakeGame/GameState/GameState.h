@@ -43,19 +43,19 @@ namespace SnakeGame
             }
         }
 
-        void onUpdate(Game& game) const
+        void onUpdate(Game& game, const float& deltaTime) const
         {
             if (state == State::MAIN_MENU)
             {
-                MainMenuState::onUpdate(game);
+                MainMenuState::onUpdate(game, deltaTime);
             }
             else if (state == State::PAUSE)
             {
-                PauseState::onUpdate(game);
+                PauseState::onUpdate(game, deltaTime);
             }
             else if (state == State::PLAYING)
             {
-                PlayingState::onUpdate(game);
+                PlayingState::onUpdate(game, deltaTime);
             }
             else if (state == State::GAME_FINISH)
             {
