@@ -38,7 +38,7 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime)
         return;
     }
 
-    MoveSnake(game.snake);
+    DoSnakeAction(game);
 }
 
 void SnakeGame::PlayingState::onDraw(Game& game, sf::RenderWindow& window)
