@@ -5,7 +5,7 @@
 
 void SnakeGame::DrawSnake(Game& game, sf::RenderWindow& window)
 {
-    for (auto& part: game.snake)
+    for (auto& part: game.snake.parts)
     {
         sf::RectangleShape rect;
         rect.setSize({CELL_SIZE, CELL_SIZE});

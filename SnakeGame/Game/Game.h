@@ -16,7 +16,7 @@ namespace SnakeGame
 
         Background background;
 
-        std::list<SnakePart> snake;
+        Snake snake;
     };
 
     void InitGame(Game& game);

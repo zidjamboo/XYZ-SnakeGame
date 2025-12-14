@@ -13,11 +13,11 @@ namespace SnakeGame
 
     void RestartGame(Game& game)
     {
-        game.snake.clear();
+        game.snake.parts.clear();
         SnakePart head;
         head.position.x = 16;
         head.position.y = 12;
-        game.snake.emplace_front(head);
+        game.snake.parts.emplace_front(head);
     }
 
     void UpdateGame(Game& game, const float& deltaTime)

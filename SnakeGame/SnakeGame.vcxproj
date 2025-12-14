@@ -158,7 +158,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor\Snake\Direction.cpp" />
     <ClCompile Include="Actor\Snake\Snake.cpp" />
+    <ClCompile Include="Actor\Snake\SnakeController.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="GameState\GameState.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
@@ -245,7 +247,9 @@
     <ClCompile Include="View\BackGround.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor\Snake\Direction.h" />
     <ClInclude Include="Actor\Snake\Snake.h" />
+    <ClInclude Include="Actor\Snake\SnakeController.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="GameState\GameState.h" />
     <ClInclude Include="GameState\MainMenuState.h" />

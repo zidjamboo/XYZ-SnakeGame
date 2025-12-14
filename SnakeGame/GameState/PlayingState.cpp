@@ -1,6 +1,7 @@
 ﻿#include "PlayingState.h"
 
 #include "../Game/Game.h"
+#include "../Actor/Snake/SnakeController.h"
 #include "../Utils/KeyboardHelper.h"
 
 namespace
@@ -30,12 +31,14 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime)
         PushGameState(game, GameState::State::PAUSE);
     }
 
+    ChangeDirection(game.snake);
+
     if (!isTick(deltaTime))
     {
         return;
     }
 
-    game.snake.front().position.y += 1;
+    MoveSnake(game.snake);
 }
 
 void SnakeGame::PlayingState::onDraw(Game& game, sf::RenderWindow& window)
