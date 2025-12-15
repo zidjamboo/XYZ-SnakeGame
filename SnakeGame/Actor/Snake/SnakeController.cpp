@@ -1,5 +1,7 @@
 ﻿#include <SFML/Window/Keyboard.hpp>
+#include <functional>
 #include "SnakeController.h"
+#include "../../Game/Game.h"
 
 namespace
 {
@@ -26,7 +28,7 @@ namespace
         return nextHead;
     }
 
-    bool isEatApple(SnakeGame::SnakePart& head, SnakeGame::Apple& apple)
+    bool isEatApple(const SnakeGame::SnakePart& head, const SnakeGame::Apple& apple)
     {
         if (head.position == apple.position)
         {
@@ -36,12 +38,12 @@ namespace
         return false;
     }
 
-    void Grow(SnakeGame::Snake& snake, SnakeGame::SnakePart& nextHead)
+    void Grow(SnakeGame::Snake& snake, const SnakeGame::SnakePart& nextHead)
     {
         snake.parts.push_front(nextHead);
     }
 
-    void Move(SnakeGame::Snake& snake, SnakeGame::SnakePart& nextHead)
+    void Move(SnakeGame::Snake& snake, const SnakeGame::SnakePart& nextHead)
     {
         snake.parts.push_front(nextHead);
         snake.parts.pop_back();
@@ -68,12 +70,13 @@ void SnakeGame::ChangeDirection(Snake& snake)
     }
 }
 
-void SnakeGame::DoSnakeAction(Game& game)
+void SnakeGame::DoSnakeAction(Game& game, const std::function<void()>& onAppleEat)
 {
     SnakePart nextHead = NextHead(game.snake);
     if (isEatApple(nextHead, game.apple))
     {
         Grow(game.snake, nextHead);
+        onAppleEat();
     }
     else
     {

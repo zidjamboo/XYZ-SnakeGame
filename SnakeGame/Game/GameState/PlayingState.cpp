@@ -38,7 +38,10 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime)
         return;
     }
 
-    DoSnakeAction(game);
+    DoSnakeAction(game, [&game]()
+    {
+        ReplaceApple(game);
+    });
 }
 
 void SnakeGame::PlayingState::onDraw(Game& game, sf::RenderWindow& window)

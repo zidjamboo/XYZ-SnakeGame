@@ -1,10 +1,11 @@
 ﻿#pragma once
 
+#include <functional>
+
 #include "Snake.h"
-#include "../../Game/Game.h"
 
 namespace SnakeGame
 {
     void ChangeDirection(Snake& snake);
-    void DoSnakeAction(Game& game);
+    void DoSnakeAction(Game& game, const std::function<void()>& onAppleEat);
 }
