@@ -13,6 +13,7 @@ namespace SnakeGame
     {
         InitSnake(game.snake);
         InitApple(game.apple);
+        ReplaceApple(game);
     }
 
     void UpdateGame(Game& game, const float& deltaTime)

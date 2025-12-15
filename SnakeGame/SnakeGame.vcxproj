@@ -472,6 +472,7 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="Utils\KeyboardHelper.cpp" />
+    <ClCompile Include="Utils\Math.cpp" />
     <ClCompile Include="View\BackGround.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -487,6 +488,7 @@
     <ClInclude Include="Game\GameState\PlayingState.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="Utils\KeyboardHelper.h" />
+    <ClInclude Include="Utils\Math.h" />
     <ClInclude Include="View\BackGround.h" />
   </ItemGroup>
   <ItemGroup>

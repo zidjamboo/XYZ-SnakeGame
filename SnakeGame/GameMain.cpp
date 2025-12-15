@@ -12,6 +12,9 @@ const std::string RESOURCES_PATH = "Resources/";
 int main()
 {
 	using namespace SnakeGame;
+	int seed = static_cast<int>(time(nullptr));
+	srand(seed);
+
 	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SnakeGame");
 
 	sf::Clock clock;
