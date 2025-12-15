@@ -491,9 +491,6 @@
     <ClInclude Include="Utils\Math.h" />
     <ClInclude Include="View\BackGround.h" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GameState\" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
