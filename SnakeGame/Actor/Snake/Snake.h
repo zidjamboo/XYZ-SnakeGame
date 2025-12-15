@@ -20,6 +20,11 @@ namespace SnakeGame
         {
             return parts.front();
         }
+
+        SnakePart& back()
+        {
+            return parts.back();
+        }
     };
 
     struct Game;

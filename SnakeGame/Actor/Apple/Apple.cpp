@@ -1,5 +1,6 @@
 ﻿#include "Apple.h"
 #include "../../Constants.h"
+#include "../../Field/Field.h"
 #include "../../Game/Game.h"
 #include "../../Utils/Math.h"
 
@@ -8,11 +9,10 @@ void SnakeGame::InitApple(Apple& apple)
 
 }
 
-void SnakeGame::ReplaceApple(Game& game)
+void SnakeGame::ReplaceApple(Apple& apple)
 {
-    Apple& apple = game.apple;
-    apple.position.x = GetRandomInt(0, X_CELLS);
-    apple.position.y = GetRandomInt(0, Y_CELLS);
+    std::vector<FieldPosition> freePositions = getFreePositions();
+    apple.position = freePositions[GetRandomInt(0, static_cast<int>(freePositions.size()) - 1)];
 }
 
 void SnakeGame::DrawApple(const Apple& apple, sf::RenderWindow& window)

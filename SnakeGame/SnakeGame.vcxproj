@@ -238,6 +238,7 @@
     <ClCompile Include="Actor\Snake\Direction.cpp" />
     <ClCompile Include="Actor\Snake\Snake.cpp" />
     <ClCompile Include="Actor\Snake\SnakeController.cpp" />
+    <ClCompile Include="Field\Field.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameState\MainMenuState.cpp">
@@ -481,6 +482,7 @@
     <ClInclude Include="Actor\Snake\Snake.h" />
     <ClInclude Include="Actor\Snake\SnakeController.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="Field\Field.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Game\GameState\GameState.h" />
     <ClInclude Include="Game\GameState\MainMenuState.h" />

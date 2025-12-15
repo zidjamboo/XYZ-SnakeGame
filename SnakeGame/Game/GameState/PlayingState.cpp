@@ -40,7 +40,7 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime)
 
     DoSnakeAction(game, [&game]()
     {
-        ReplaceApple(game);
+        ReplaceApple(game.apple);
     });
 }
 

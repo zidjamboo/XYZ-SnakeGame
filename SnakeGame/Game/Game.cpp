@@ -1,5 +1,7 @@
 ﻿#include "Game.h"
 
+#include "../Field/Field.h"
+
 namespace SnakeGame
 {
     void InitGame(Game& game)
@@ -11,9 +13,10 @@ namespace SnakeGame
 
     void RestartGame(Game& game)
     {
+        InitField();
         InitSnake(game.snake);
         InitApple(game.apple);
-        ReplaceApple(game);
+        ReplaceApple(game.apple);
     }
 
     void UpdateGame(Game& game, const float& deltaTime)

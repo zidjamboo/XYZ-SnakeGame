@@ -1,6 +1,8 @@
 ﻿#include <SFML/Window/Keyboard.hpp>
 #include <functional>
 #include "SnakeController.h"
+
+#include "../../Field/Field.h"
 #include "../../Game/Game.h"
 
 namespace
@@ -41,11 +43,13 @@ namespace
     void Grow(SnakeGame::Snake& snake, const SnakeGame::SnakePart& nextHead)
     {
         snake.parts.push_front(nextHead);
+        SnakeGame::OccupyFieldPosition(nextHead.position);
     }
 
     void Move(SnakeGame::Snake& snake, const SnakeGame::SnakePart& nextHead)
     {
         snake.parts.push_front(nextHead);
+        SnakeGame::FreeFieldPosition(snake.back().position);
         snake.parts.pop_back();
     }
 }
