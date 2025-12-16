@@ -14,6 +14,8 @@ namespace SnakeGame
     struct Snake
     {
         Direction direction = Direction::UP;
+        Direction lastDirection = Direction::UP;
+
         std::list<SnakePart> parts;
 
         SnakePart& head()

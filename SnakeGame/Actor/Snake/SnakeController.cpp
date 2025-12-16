@@ -66,19 +66,23 @@ namespace
 
 void SnakeGame::ChangeDirection(Snake& snake)
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    if ((sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) &&
+        snake.lastDirection != Direction::RIGHT)
     {
         snake.direction = Direction::LEFT;
     }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) &&
+        snake.lastDirection != Direction::Down)
     {
         snake.direction = Direction::UP;
     }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) &&
+        snake.lastDirection != Direction::LEFT)
     {
         snake.direction = Direction::RIGHT;
     }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) &&
+        snake.lastDirection != Direction::UP)
     {
         snake.direction = Direction::Down;
     }
@@ -86,6 +90,7 @@ void SnakeGame::ChangeDirection(Snake& snake)
 
 void SnakeGame::DoSnakeAction(Game& game, const std::function<void()>& onAppleEat)
 {
+    game.snake.lastDirection = game.snake.direction;
     SnakePart nextHead = NextHead(game.snake);
     if (isEatApple(nextHead, game.apple))
     {
