@@ -1,7 +1,7 @@
 ﻿#include "BackGround.h"
 
-#include "../Constants.h"
-#include "../Game/Game.h"
+#include "../../Constants.h"
+#include "../../Game/Game.h"
 
 void SnakeGame::InitBackground(Game& game)
 {
