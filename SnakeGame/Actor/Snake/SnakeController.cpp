@@ -40,15 +40,20 @@ namespace
         return false;
     }
 
-    void Grow(SnakeGame::Snake& snake, const SnakeGame::SnakePart& nextHead)
+    void AddNextHead(SnakeGame::Snake& snake, const SnakeGame::SnakePart& nextHead)
     {
         snake.parts.push_front(nextHead);
         SnakeGame::OccupyFieldPosition(nextHead.position);
     }
 
+    void Grow(SnakeGame::Snake& snake, const SnakeGame::SnakePart& nextHead)
+    {
+        AddNextHead(snake, nextHead);
+    }
+
     void Move(SnakeGame::Snake& snake, const SnakeGame::SnakePart& nextHead)
     {
-        snake.parts.push_front(nextHead);
+        AddNextHead(snake, nextHead);
         SnakeGame::FreeFieldPosition(snake.back().position);
         snake.parts.pop_back();
     }
