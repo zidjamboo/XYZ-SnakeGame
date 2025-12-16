@@ -46,6 +46,12 @@ namespace
         SnakeGame::OccupyFieldPosition(nextHead.position);
     }
 
+    void DropTail(SnakeGame::Snake& snake)
+    {
+        SnakeGame::FreeFieldPosition(snake.back().position);
+        snake.parts.pop_back();
+    }
+
     void Grow(SnakeGame::Snake& snake, const SnakeGame::SnakePart& nextHead)
     {
         AddNextHead(snake, nextHead);
@@ -54,8 +60,7 @@ namespace
     void Move(SnakeGame::Snake& snake, const SnakeGame::SnakePart& nextHead)
     {
         AddNextHead(snake, nextHead);
-        SnakeGame::FreeFieldPosition(snake.back().position);
-        snake.parts.pop_back();
+        DropTail(snake);
     }
 }
 
