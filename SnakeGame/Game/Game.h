@@ -6,10 +6,10 @@
 #include "../View/Background/BackGround.h"
 #include "../Actor/Snake/Snake.h"
 #include "../Actor/Apple/Apple.h"
+#include "../Score/Score.h"
 
 namespace SnakeGame
 {
-
     struct Game
     {
         std::stack<GameState> stateStack;
@@ -18,6 +18,8 @@ namespace SnakeGame
 
         Snake snake;
         Apple apple;
+
+        Score score;
     };
 
     void InitGame(Game& game);

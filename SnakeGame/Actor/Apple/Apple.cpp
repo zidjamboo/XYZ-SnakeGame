@@ -18,9 +18,7 @@ void SnakeGame::ReplaceApple(Apple& apple)
 void SnakeGame::DrawApple(const Apple& apple, sf::RenderWindow& window)
 {
     sf::RectangleShape rect;
-    rect.setPosition({
-        CELL_SIZE * static_cast<float>(apple.position.x),
-        CELL_SIZE * static_cast<float>(apple.position.y)});
+    rect.setPosition(ToDrawPosition(apple.position));
     rect.setSize({CELL_SIZE, CELL_SIZE});
     rect.setFillColor(sf::Color::Green);
 

@@ -1,6 +1,7 @@
 ﻿#include "Game.h"
 
 #include "../Field/Field.h"
+#include "../View/ScoreTopPanel/ScoreTopPanel.h"
 
 namespace SnakeGame
 {
@@ -9,6 +10,7 @@ namespace SnakeGame
         game.stateStack.emplace(GameState::State::MAIN_MENU);
 
         InitBackground(game);
+        InitScoreTopPanel();
     }
 
     void RestartGame(Game& game)

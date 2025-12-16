@@ -1,6 +1,7 @@
 ﻿#include "Snake.h"
 
 #include "../../Constants.h"
+#include "../../Field/Field.h"
 
 void SnakeGame::InitSnake(Snake& snake)
 {
@@ -17,9 +18,7 @@ void SnakeGame::DrawSnake(const Snake& snake, sf::RenderWindow& window)
     {
         sf::RectangleShape rect;
         rect.setSize({CELL_SIZE, CELL_SIZE});
-        rect.setPosition(
-            CELL_SIZE * static_cast<float>(part.position.x),
-            CELL_SIZE * static_cast<float>(part.position.y));
+        rect.setPosition(ToDrawPosition(part.position));
         rect.setFillColor(sf::Color::Red);
 
         window.draw(rect);

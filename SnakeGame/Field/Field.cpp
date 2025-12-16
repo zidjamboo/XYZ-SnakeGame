@@ -35,6 +35,15 @@ void SnakeGame::FreeFieldPosition(FieldPosition fieldPosition)
     freePositionsVector.emplace_back(fieldPosition);
 }
 
+sf::Vector2f SnakeGame::ToDrawPosition(FieldPosition fieldPosition)
+{
+    return {
+        CELL_SIZE * static_cast<float>(fieldPosition.x),
+        SCORE_TOP_PANEL_HEIGHT + CELL_SIZE * static_cast<float>(fieldPosition.y)
+    };
+}
+
+
 std::vector<FieldPosition> SnakeGame::getFreePositions()
 {
     return {freePositionsVector.begin(), freePositionsVector.end()};

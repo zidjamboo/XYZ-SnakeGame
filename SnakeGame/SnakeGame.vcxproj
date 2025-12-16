@@ -472,6 +472,7 @@
       <AdditionalIncludeDirectories>D:\Development\XYZ\Lessons\SnakeGame\\SFML\SFML-2.5.1\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="Score\Score.cpp" />
     <ClCompile Include="Utils\KeyboardHelper.cpp" />
     <ClCompile Include="Utils\Math.cpp" />
     <ClCompile Include="View\Background\BackGround.cpp">
@@ -551,6 +552,7 @@
       <AdditionalIncludeDirectories>D:\Development\XYZ\Lessons\SnakeGame\\SFML\SFML-2.5.1\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="View\ScoreTopPanel\ScoreTopPanel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor\Apple\Apple.h" />
@@ -564,10 +566,12 @@
     <ClInclude Include="Game\GameState\MainMenuState.h" />
     <ClInclude Include="Game\GameState\PauseState.h" />
     <ClInclude Include="Game\GameState\PlayingState.h" />
+    <ClInclude Include="Score\Score.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="Utils\KeyboardHelper.h" />
     <ClInclude Include="Utils\Math.h" />
     <ClInclude Include="View\Background\BackGround.h" />
+    <ClInclude Include="View\ScoreTopPanel\ScoreTopPanel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
