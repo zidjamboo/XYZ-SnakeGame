@@ -6,12 +6,18 @@
 
 void SnakeGame::InitApple(Apple& apple)
 {
-
 }
 
 void SnakeGame::ReplaceApple(Apple& apple)
 {
     std::vector<FieldPosition> freePositions = getFreePositions();
+
+    if (std::empty(freePositions))
+    {
+        apple.position = {-1, -1};
+        return;
+    }
+
     apple.position = freePositions[GetRandomInt(0, static_cast<int>(freePositions.size()) - 1)];
 }
 
