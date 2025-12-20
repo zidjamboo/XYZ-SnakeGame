@@ -33,4 +33,5 @@ namespace SnakeGame
 
     void InitSnake(Snake& snake);
     void DrawSnake(const Snake& snake, sf::RenderWindow & window);
+    bool isSnakeSelfCollide(Snake& snake);
 }

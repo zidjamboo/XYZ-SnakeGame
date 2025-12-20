@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <SFML/Graphics.hpp>
 
+#include "GameFinishState.h"
 #include "MainMenuState.h"
 #include "PauseState.h"
 #include "PlayingState.h"
@@ -39,7 +40,7 @@ namespace SnakeGame
             }
             else if (state == State::GAME_FINISH)
             {
-
+                GameFinishState::onActive();
             }
         }
 
@@ -59,7 +60,7 @@ namespace SnakeGame
             }
             else if (state == State::GAME_FINISH)
             {
-
+                GameFinishState::onUpdate(game, deltaTime);
             }
         }
 
@@ -79,7 +80,7 @@ namespace SnakeGame
             }
             else if (state == State::GAME_FINISH)
             {
-
+                GameFinishState::onDraw(game, window);
             }
         }
 
@@ -99,7 +100,7 @@ namespace SnakeGame
             }
             else if (state == State::GAME_FINISH)
             {
-
+                GameFinishState::onInactive();
             }
         }
     };

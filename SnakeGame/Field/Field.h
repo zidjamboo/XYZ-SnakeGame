@@ -6,6 +6,7 @@
 
 namespace SnakeGame
 {
+    bool isPositionInBound(FieldPosition fieldPosition);
     void InitField();
     void OccupyFieldPosition(FieldPosition fieldPosition);
     void FreeFieldPosition(FieldPosition fieldPosition);

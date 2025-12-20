@@ -24,3 +24,16 @@ void SnakeGame::DrawSnake(const Snake& snake, sf::RenderWindow& window)
         window.draw(rect);
     }
 }
+
+bool SnakeGame::isSnakeSelfCollide(Snake& snake)
+{
+    for (auto it = ++snake.parts.begin(); it != snake.parts.end(); ++it)
+    {
+        if (it->position == snake.head().position)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}

@@ -241,6 +241,7 @@
     <ClCompile Include="Field\Field.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\GameState\GameFinishState.cpp" />
     <ClCompile Include="Game\GameState\MainMenuState.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -562,6 +563,7 @@
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Field\Field.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\GameState\GameFinishState.h" />
     <ClInclude Include="Game\GameState\GameState.h" />
     <ClInclude Include="Game\GameState\MainMenuState.h" />
     <ClInclude Include="Game\GameState\PauseState.h" />

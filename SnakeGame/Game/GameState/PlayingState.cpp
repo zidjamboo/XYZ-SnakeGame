@@ -2,6 +2,7 @@
 
 #include "../Game.h"
 #include "../../Actor/Snake/SnakeController.h"
+#include "../../Field/Field.h"
 #include "../../Utils/KeyboardHelper.h"
 #include "../../View/ScoreTopPanel/ScoreTopPanel.h"
 
@@ -18,6 +19,15 @@ namespace
             return true;
         }
         return false;
+    }
+
+    bool isGameOver(SnakeGame::Game& game)
+    {
+        bool isFieldOccupied = std::empty(SnakeGame::getFreePositions());
+        bool isSnakeOutOfBounds = !SnakeGame::isPositionInBound(game.snake.head().position);
+        bool isSnakeSelfCollide = SnakeGame::isSnakeSelfCollide(game.snake);
+
+        return isFieldOccupied || isSnakeOutOfBounds || isSnakeSelfCollide;
     }
 }
 
@@ -44,6 +54,11 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime)
         ReplaceApple(game.apple);
         game.score.value++;
     });
+
+    if (isGameOver(game))
+    {
+        PushGameState(game, GameState::State::GAME_FINISH);
+    }
 }
 
 void SnakeGame::PlayingState::onDraw(Game& game, sf::RenderWindow& window)
