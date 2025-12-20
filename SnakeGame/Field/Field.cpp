@@ -6,6 +6,12 @@
 namespace
 {
     std::vector<FieldPosition> freePositionsVector;
+
+    bool isPositionInBound(FieldPosition fieldPosition)
+    {
+        return fieldPosition.x >= 0 && fieldPosition.x < X_CELLS &&
+            fieldPosition.y >= 0 && fieldPosition.y < Y_CELLS;
+    }
 }
 
 void SnakeGame::InitField()
@@ -23,6 +29,11 @@ void SnakeGame::InitField()
 
 void SnakeGame::OccupyFieldPosition(FieldPosition fieldPosition)
 {
+    if (!isPositionInBound(fieldPosition))
+    {
+        return;
+    }
+
     auto it = std::find(
         freePositionsVector.begin(), freePositionsVector.end(), fieldPosition);
 
