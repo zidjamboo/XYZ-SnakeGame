@@ -1,6 +1,5 @@
 ﻿#include "Field.h"
 
-#include <set>
 #include "../Constants.h"
 
 namespace
