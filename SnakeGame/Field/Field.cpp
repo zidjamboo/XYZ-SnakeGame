@@ -37,6 +37,11 @@ void SnakeGame::OccupyFieldPosition(FieldPosition fieldPosition)
     auto it = std::find(
         freePositionsVector.begin(), freePositionsVector.end(), fieldPosition);
 
+    if (it == freePositionsVector.end())
+    {
+        return;
+    }
+
     std::swap(*it, *(freePositionsVector.end() -1));
     freePositionsVector.pop_back();
 }
