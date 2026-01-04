@@ -7,6 +7,7 @@
 #include "../Actor/Snake/Snake.h"
 #include "../Actor/Apple/Apple.h"
 #include "../Score/Score.h"
+#include "../View/Fonts/Fonts.h"
 
 namespace SnakeGame
 {
@@ -20,6 +21,8 @@ namespace SnakeGame
         Apple apple;
 
         Score score;
+
+        Fonts fonts;
     };
 
     void InitGame(Game& game);

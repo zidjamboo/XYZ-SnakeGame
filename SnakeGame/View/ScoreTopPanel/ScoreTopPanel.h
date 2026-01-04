@@ -3,7 +3,6 @@
 
 namespace SnakeGame
 {
-    struct Score;
-    void InitScoreTopPanel();
-    void DrawScoreTopPanel(const Score& score, sf::RenderWindow& window);
+    struct Game;
+    void DrawScoreTopPanel(const Game& game, sf::RenderWindow& window);
 }

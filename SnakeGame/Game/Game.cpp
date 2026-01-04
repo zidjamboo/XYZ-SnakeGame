@@ -10,7 +10,7 @@ namespace SnakeGame
         game.stateStack.emplace(GameState::State::MAIN_MENU);
 
         InitBackground(game);
-        InitScoreTopPanel();
+        InitFonts(game);
     }
 
     void RestartGame(Game& game)
