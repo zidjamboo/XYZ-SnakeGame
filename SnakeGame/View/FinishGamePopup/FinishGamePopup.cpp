@@ -11,6 +11,7 @@ namespace
     constexpr float POPUP_Y_SIZE = 500.f;
     constexpr float BORDER_SIZE = 10.f;
     constexpr int MAX_RECORD_SIZE = 24;
+    constexpr float FIX_FONT_ALIGN = 5.f;
 
     void DrawPopupBackground(sf::RenderWindow& window)
     {
@@ -121,6 +122,52 @@ namespace
             startYPosition += 20.f;
         }
     }
+
+    void DrawStartGameButton(const SnakeGame::Fonts& fonts, sf::RenderWindow& window)
+    {
+        sf::RectangleShape buttonBackgrond;
+        buttonBackgrond.setFillColor(sf::Color::White);
+        sf::Vector2f buttonBackgoundSize = {200.f, 75.f};
+        buttonBackgrond.setSize(buttonBackgoundSize);
+        sf::Vector2f buttonBackgroundPosition = {(SCREEN_WIDTH - buttonBackgrond.getGlobalBounds().width) / 2, 325.f};
+        buttonBackgrond.setPosition(buttonBackgroundPosition);
+
+        sf::Text buttonText;
+        buttonText.setFont(fonts.robotoBold);
+        buttonText.setFillColor(sf::Color::Black);
+        buttonText.setCharacterSize(24);
+        buttonText.setString(L"Начать игру");
+        buttonText.setPosition({
+            (SCREEN_WIDTH - buttonText.getGlobalBounds().width) / 2,
+            buttonBackgroundPosition.y + (buttonBackgoundSize.y - buttonText.getGlobalBounds().height) / 2 - FIX_FONT_ALIGN
+        });
+
+        window.draw(buttonBackgrond);
+        window.draw(buttonText);
+    }
+
+    void DrawToMainMenuButton(const SnakeGame::Fonts& fonts, sf::RenderWindow& window)
+    {
+        sf::RectangleShape buttonBackgrond;
+        buttonBackgrond.setFillColor(sf::Color::White);
+        sf::Vector2f buttonBackgoundSize = {200.f, 75.f};
+        buttonBackgrond.setSize(buttonBackgoundSize);
+        sf::Vector2f buttonBackgroundPosition = {(SCREEN_WIDTH - buttonBackgrond.getGlobalBounds().width) / 2, 425.f};
+        buttonBackgrond.setPosition(buttonBackgroundPosition);
+
+        sf::Text buttonText;
+        buttonText.setFont(fonts.robotoBold);
+        buttonText.setFillColor(sf::Color::Black);
+        buttonText.setCharacterSize(24);
+        buttonText.setString(L"В главное меню");
+        buttonText.setPosition({
+            (SCREEN_WIDTH - buttonText.getGlobalBounds().width) / 2,
+            buttonBackgroundPosition.y + (buttonBackgoundSize.y - buttonText.getGlobalBounds().height) / 2 - FIX_FONT_ALIGN
+        });
+
+        window.draw(buttonBackgrond);
+        window.draw(buttonText);
+    }
 }
 
 void SnakeGame::DrawFinishGamePopup(const Game& game, sf::RenderWindow& window)
@@ -131,4 +178,6 @@ void SnakeGame::DrawFinishGamePopup(const Game& game, sf::RenderWindow& window)
     DrawRecordTitle(game.fonts, window);
     std::vector<unsigned int> records = {100, 200, 59, 1};
     DrawRecords(game.fonts, records, window);
+    DrawStartGameButton(game.fonts, window);
+    DrawToMainMenuButton(game.fonts, window);
 }
