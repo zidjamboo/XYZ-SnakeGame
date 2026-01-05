@@ -13,6 +13,13 @@ namespace
     constexpr int MAX_RECORD_SIZE = 24;
     constexpr float FIX_FONT_ALIGN = 5.f;
 
+    enum class SelectedButton
+    {
+        START_GAME, TO_MAIN_MENU
+    };
+
+    SelectedButton selectedButton = SelectedButton::START_GAME;
+
     void DrawPopupBackground(sf::RenderWindow& window)
     {
         sf::RectangleShape border;
@@ -125,8 +132,18 @@ namespace
 
     void DrawStartGameButton(const SnakeGame::Fonts& fonts, sf::RenderWindow& window)
     {
+
+        sf::Color color;
+        if (selectedButton == SelectedButton::START_GAME)
+        {
+            color = sf::Color::Yellow;
+        } else
+        {
+            color = sf::Color:: White;
+        }
+
         sf::RectangleShape buttonBackgrond;
-        buttonBackgrond.setFillColor(sf::Color::White);
+        buttonBackgrond.setFillColor(color);
         sf::Vector2f buttonBackgoundSize = {200.f, 75.f};
         buttonBackgrond.setSize(buttonBackgoundSize);
         sf::Vector2f buttonBackgroundPosition = {(SCREEN_WIDTH - buttonBackgrond.getGlobalBounds().width) / 2, 325.f};
@@ -148,8 +165,17 @@ namespace
 
     void DrawToMainMenuButton(const SnakeGame::Fonts& fonts, sf::RenderWindow& window)
     {
+        sf::Color color;
+        if (selectedButton == SelectedButton::TO_MAIN_MENU)
+        {
+            color = sf::Color::Yellow;
+        } else
+        {
+            color = sf::Color:: White;
+        }
+
         sf::RectangleShape buttonBackgrond;
-        buttonBackgrond.setFillColor(sf::Color::White);
+        buttonBackgrond.setFillColor(color);
         sf::Vector2f buttonBackgoundSize = {200.f, 75.f};
         buttonBackgrond.setSize(buttonBackgoundSize);
         sf::Vector2f buttonBackgroundPosition = {(SCREEN_WIDTH - buttonBackgrond.getGlobalBounds().width) / 2, 425.f};
@@ -167,6 +193,18 @@ namespace
 
         window.draw(buttonBackgrond);
         window.draw(buttonText);
+    }
+}
+
+void SnakeGame::SwitchSelectedFinishGameButton()
+{
+    if (selectedButton == SelectedButton::START_GAME)
+    {
+        selectedButton = SelectedButton::TO_MAIN_MENU;
+    }
+    else
+    {
+        selectedButton = SelectedButton::START_GAME;
     }
 }
 
