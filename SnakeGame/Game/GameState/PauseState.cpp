@@ -3,7 +3,7 @@
 #include "../Game.h"
 #include "../../Utils/KeyboardHelper.h"
 
-void SnakeGame::PauseState::onActive()
+void SnakeGame::PauseState::onActive(Game& game)
 {
 }
 

@@ -24,7 +24,6 @@ int main()
 	Game game;
 
 	InitGame(game);
-	RestartGame(game);
 
 	while (window.isOpen())
 	{

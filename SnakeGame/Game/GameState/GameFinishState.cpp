@@ -4,7 +4,7 @@
 #include "../../View/FinishGamePopup/FinishGamePopup.h"
 #include "../../Utils/KeyboardHelper.h"
 
-void SnakeGame::GameFinishState::onActive()
+void SnakeGame::GameFinishState::onActive(Game& game)
 {
 }
 
@@ -13,6 +13,11 @@ void SnakeGame::GameFinishState::onUpdate(Game& game, const float& deltaTime)
     if (isKeyPressed(sf::Keyboard::Up) || isKeyPressed(sf::Keyboard::Down))
     {
         SwitchSelectedFinishGameButton();
+    }
+
+    if (isKeyPressed(sf::Keyboard::Enter) || isKeyPressed(sf::Keyboard::Return) || isKeyPressed(sf::Keyboard::Space))
+    {
+        HandleSelectedFinishGameButtonClick(game);
     }
 }
 

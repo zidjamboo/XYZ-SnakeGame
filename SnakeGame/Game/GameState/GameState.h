@@ -24,23 +24,23 @@ namespace SnakeGame
 
         GameState(State state) : state(state) {}
 
-        void onActive() const
+        void onActive(Game& game) const
         {
             if (state == State::MAIN_MENU)
             {
-                MainMenuState::onActive();
+                MainMenuState::onActive(game);
             }
             else if (state == State::PAUSE)
             {
-                PauseState::onActive();
+                PauseState::onActive(game);
             }
             else if (state == State::PLAYING)
             {
-                PlayingState::onActive();
+                PlayingState::onActive(game);
             }
             else if (state == State::GAME_FINISH)
             {
-                GameFinishState::onActive();
+                GameFinishState::onActive(game);
             }
         }
 

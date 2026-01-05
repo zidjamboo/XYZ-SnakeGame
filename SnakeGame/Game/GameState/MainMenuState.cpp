@@ -2,7 +2,7 @@
 
 #include "../Game.h"
 
-void SnakeGame::MainMenuState::onActive()
+void SnakeGame::MainMenuState::onActive(Game& game)
 {
 }
 

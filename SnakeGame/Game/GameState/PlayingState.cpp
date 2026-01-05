@@ -31,8 +31,9 @@ namespace
     }
 }
 
-void SnakeGame::PlayingState::onActive()
+void SnakeGame::PlayingState::onActive(Game& game)
 {
+    RestartGame(game);
 }
 
 void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime)

@@ -33,4 +33,5 @@ namespace SnakeGame
     void PushGameState(Game& game, GameState state);
     GameState TopGameState(Game& game);
     void PopGameState(Game& game);
+    void ClearGameStateStack(Game& game);
 }

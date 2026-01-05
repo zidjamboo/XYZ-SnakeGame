@@ -163,6 +163,12 @@ namespace
         window.draw(buttonText);
     }
 
+    void OnStartGameButtonClick(SnakeGame::Game& game)
+    {
+        ClearGameStateStack(game);
+        SnakeGame::PushGameState(game, SnakeGame::GameState::State::PLAYING);
+    }
+
     void DrawToMainMenuButton(const SnakeGame::Fonts& fonts, sf::RenderWindow& window)
     {
         sf::Color color;
@@ -194,6 +200,12 @@ namespace
         window.draw(buttonBackgrond);
         window.draw(buttonText);
     }
+
+    void OnToMainMenuButtonClick(SnakeGame::Game& game)
+    {
+        ClearGameStateStack(game);
+        SnakeGame::PushGameState(game, SnakeGame::GameState::State::MAIN_MENU);
+    }
 }
 
 void SnakeGame::SwitchSelectedFinishGameButton()
@@ -205,6 +217,18 @@ void SnakeGame::SwitchSelectedFinishGameButton()
     else
     {
         selectedButton = SelectedButton::START_GAME;
+    }
+}
+
+void SnakeGame::HandleSelectedFinishGameButtonClick(SnakeGame::Game& game)
+{
+    if (selectedButton == SelectedButton::START_GAME)
+    {
+        OnStartGameButtonClick(game);
+    }
+    else if (selectedButton == SelectedButton::TO_MAIN_MENU)
+    {
+        OnToMainMenuButtonClick(game);
     }
 }
 

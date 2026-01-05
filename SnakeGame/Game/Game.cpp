@@ -36,7 +36,7 @@ namespace SnakeGame
     void PushGameState(Game& game, GameState state)
     {
         game.stateStack.emplace(state);
-        state.onActive();
+        state.onActive(game);
     }
 
     GameState TopGameState(Game& game)
@@ -49,5 +49,13 @@ namespace SnakeGame
         GameState& state = game.stateStack.top();
         game.stateStack.pop();
         state.onInactive();
+    }
+
+    void ClearGameStateStack(Game& game)
+    {
+        while (!std::empty(game.stateStack))
+        {
+            PopGameState(game);
+        }
     }
 }
