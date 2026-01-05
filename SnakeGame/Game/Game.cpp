@@ -32,30 +32,4 @@ namespace SnakeGame
         TopGameState(game).onDraw(game, window);
         window.display();
     }
-
-    void PushGameState(Game& game, GameState state)
-    {
-        game.stateStack.emplace(state);
-        state.onActive(game);
-    }
-
-    GameState TopGameState(Game& game)
-    {
-        return game.stateStack.top();
-    }
-
-    void PopGameState(Game& game)
-    {
-        GameState& state = game.stateStack.top();
-        game.stateStack.pop();
-        state.onInactive();
-    }
-
-    void ClearGameStateStack(Game& game)
-    {
-        while (!std::empty(game.stateStack))
-        {
-            PopGameState(game);
-        }
-    }
 }

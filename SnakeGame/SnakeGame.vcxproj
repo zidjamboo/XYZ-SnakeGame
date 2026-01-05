@@ -242,6 +242,7 @@
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Game\GameState\GameFinishState.cpp" />
+    <ClCompile Include="Game\GameState\GameState.cpp" />
     <ClCompile Include="Game\GameState\MainMenuState.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
