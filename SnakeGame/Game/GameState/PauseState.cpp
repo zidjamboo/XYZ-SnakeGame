@@ -7,7 +7,7 @@ void SnakeGame::PauseState::onActive(Game& game)
 {
 }
 
-void SnakeGame::PauseState::onUpdate(Game& game, const float& deltaTime)
+void SnakeGame::PauseState::onUpdate(Game& game, const float& deltaTime, sf::Event& event)
 {
     if (isKeyPressed(sf::Keyboard::Escape))
     {

@@ -21,9 +21,9 @@ namespace SnakeGame
         ReplaceApple(game.apple);
     }
 
-    void UpdateGame(Game& game, const float& deltaTime)
+    void UpdateGame(Game& game, const float& deltaTime, sf::Event& event)
     {
-        TopGameState(game).onUpdate(game, deltaTime);
+        TopGameState(game).onUpdate(game, deltaTime, event);
     }
 
     void DrawGame(Game& game, sf::RenderWindow& window)

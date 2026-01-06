@@ -8,7 +8,7 @@ void SnakeGame::GameFinishState::onActive(Game& game)
 {
 }
 
-void SnakeGame::GameFinishState::onUpdate(Game& game, const float& deltaTime)
+void SnakeGame::GameFinishState::onUpdate(Game& game, const float& deltaTime, sf::Event& eve)
 {
     if (isKeyPressed(sf::Keyboard::Up) || isKeyPressed(sf::Keyboard::Down))
     {

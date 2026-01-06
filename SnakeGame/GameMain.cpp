@@ -41,7 +41,8 @@ int main()
 		lastTime = currentTime;
 
 		HandleKeysUnpress();
-		UpdateGame(game, deltaTime);
+		HandleTextEnteredEventsDelay(deltaTime);
+		UpdateGame(game, deltaTime, event);
 		DrawGame(game, window);
 	}
 

@@ -4,7 +4,7 @@
 namespace SnakeGame
 {
     struct Game;
-    namespace GameFinishState
+    namespace SaveRecordEnterName
     {
         void onActive(Game& game);
         void onUpdate(Game& game, const float& deltaTime, sf::Event& event);

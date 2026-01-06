@@ -36,7 +36,7 @@ void SnakeGame::PlayingState::onActive(Game& game)
     RestartGame(game);
 }
 
-void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime)
+void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime, sf::Event& event)
 {
     if (isKeyPressed(sf::Keyboard::Escape))
     {

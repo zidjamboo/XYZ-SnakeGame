@@ -6,6 +6,7 @@
 #include "MainMenuState.h"
 #include "PauseState.h"
 #include "PlayingState.h"
+#include "SaveRecordInputName.h"
 #include "SaveRecordState.h"
 
 namespace SnakeGame
@@ -19,6 +20,7 @@ namespace SnakeGame
             PAUSE,
             PLAYING,
             SAVE_RECORD,
+            SAVE_RECORD_ENTER_NAME,
             GAME_FINISH
         };
 
@@ -44,33 +46,41 @@ namespace SnakeGame
             {
                 SaveRecordState::onActive(game);
             }
+            else if (state == State::SAVE_RECORD_ENTER_NAME)
+            {
+                SaveRecordEnterName::onActive(game);
+            }
             else if (state == State::GAME_FINISH)
             {
                 GameFinishState::onActive(game);
             }
         }
 
-        void onUpdate(Game& game, const float& deltaTime) const
+        void onUpdate(Game& game, const float& deltaTime, sf::Event& event) const
         {
             if (state == State::MAIN_MENU)
             {
-                MainMenuState::onUpdate(game, deltaTime);
+                MainMenuState::onUpdate(game, deltaTime, event);
             }
             else if (state == State::PAUSE)
             {
-                PauseState::onUpdate(game, deltaTime);
+                PauseState::onUpdate(game, deltaTime, event);
             }
             else if (state == State::PLAYING)
             {
-                PlayingState::onUpdate(game, deltaTime);
+                PlayingState::onUpdate(game, deltaTime, event);
             }
             else if (state == State::SAVE_RECORD)
             {
-                SaveRecordState::onUpdate(game, deltaTime);
+                SaveRecordState::onUpdate(game, deltaTime, event);
+            }
+            else if (state == State::SAVE_RECORD_ENTER_NAME)
+            {
+                SaveRecordEnterName::onUpdate(game, deltaTime, event);
             }
             else if (state == State::GAME_FINISH)
             {
-                GameFinishState::onUpdate(game, deltaTime);
+                GameFinishState::onUpdate(game, deltaTime, event);
             }
         }
 
@@ -91,6 +101,10 @@ namespace SnakeGame
             else if (state == State::SAVE_RECORD)
             {
                 SaveRecordState::onDraw(game, window);
+            }
+            else if (state == State::SAVE_RECORD_ENTER_NAME)
+            {
+                SaveRecordEnterName::onDraw(game, window);
             }
             else if (state == State::GAME_FINISH)
             {
@@ -115,6 +129,10 @@ namespace SnakeGame
             else if (state == State::SAVE_RECORD)
             {
                 SaveRecordState::onInactive();
+            }
+            else if (state == State::SAVE_RECORD_ENTER_NAME)
+            {
+                SaveRecordEnterName::onInactive();
             }
             else if (state == State::GAME_FINISH)
             {

@@ -6,7 +6,7 @@ void SnakeGame::MainMenuState::onActive(Game& game)
 {
 }
 
-void SnakeGame::MainMenuState::onUpdate(Game& game, const float& deltaTime)
+void SnakeGame::MainMenuState::onUpdate(Game& game, const float& deltaTime, sf::Event& event)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
     {

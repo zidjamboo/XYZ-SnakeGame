@@ -474,6 +474,7 @@
       <AdditionalIncludeDirectories>D:\Development\XYZ\Lessons\SnakeGame\\SFML\SFML-2.5.1\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="Game\GameState\SaveRecordInputName.cpp" />
     <ClCompile Include="Game\GameState\SaveRecordState.cpp" />
     <ClCompile Include="Score\Score.cpp" />
     <ClCompile Include="Utils\KeyboardHelper.cpp" />
@@ -557,6 +558,7 @@
     </ClCompile>
     <ClCompile Include="View\FinishGamePopup\FinishGamePopup.cpp" />
     <ClCompile Include="View\Fonts\Fonts.cpp" />
+    <ClCompile Include="View\SaveRecordEnterName\SaveRecordInputNameView.cpp" />
     <ClCompile Include="View\SaveRecordQuestionPopup\SaveRecordQuestionPopup.cpp" />
     <ClCompile Include="View\ScoreTopPanel\ScoreTopPanel.cpp" />
   </ItemGroup>
@@ -573,6 +575,7 @@
     <ClInclude Include="Game\GameState\MainMenuState.h" />
     <ClInclude Include="Game\GameState\PauseState.h" />
     <ClInclude Include="Game\GameState\PlayingState.h" />
+    <ClInclude Include="Game\GameState\SaveRecordInputName.h" />
     <ClInclude Include="Game\GameState\SaveRecordState.h" />
     <ClInclude Include="Score\Score.h" />
     <ClInclude Include="Types.h" />
@@ -581,6 +584,7 @@
     <ClInclude Include="View\Background\BackGround.h" />
     <ClInclude Include="View\FinishGamePopup\FinishGamePopup.h" />
     <ClInclude Include="View\Fonts\Fonts.h" />
+    <ClInclude Include="View\SaveRecordEnterName\SaveRecordInputNameView.h" />
     <ClInclude Include="View\SaveRecordQuestionPopup\SaveRecordQuestionPopup.h" />
     <ClInclude Include="View\ScoreTopPanel\ScoreTopPanel.h" />
   </ItemGroup>

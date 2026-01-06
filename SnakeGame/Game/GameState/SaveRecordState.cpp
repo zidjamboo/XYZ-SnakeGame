@@ -7,7 +7,7 @@ void SnakeGame::SaveRecordState::onActive(Game& game)
 {
 }
 
-void SnakeGame::SaveRecordState::onUpdate(Game& game, const float& deltaTime)
+void SnakeGame::SaveRecordState::onUpdate(Game& game, const float& deltaTime, sf::Event& event)
 {
     if (isKeyPressed(sf::Keyboard::Up) || isKeyPressed(sf::Keyboard::Down) ||
         isKeyPressed(sf::Keyboard::W) || isKeyPressed(sf::Keyboard::S))

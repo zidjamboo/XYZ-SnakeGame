@@ -111,4 +111,8 @@ void SnakeGame::HandleSelectedOptionClick(Game& game)
     {
         PushGameState(game, GameState::State::GAME_FINISH);
     }
+    else if (selectedOption == SelectedOption::YES)
+    {
+        PushGameState(game, GameState::State::SAVE_RECORD_ENTER_NAME);
+    }
 }

@@ -1,8 +1,13 @@
 ﻿#include "KeyboardHelper.h"
 
 #include <set>
+#include <unordered_map>
 
-static std::set<sf::Keyboard::Key> pressedKeys;
+namespace
+{
+    std::set<sf::Keyboard::Key> pressedKeys;
+    std::unordered_map<sf::Uint32, float> textEnteredMap;
+}
 
 bool SnakeGame::isKeyPressed(sf::Keyboard::Key key)
 {
@@ -36,5 +41,36 @@ void SnakeGame::HandleKeysUnpress()
     for (auto& key : keysToRemove)
     {
         pressedKeys.erase(key);
+    }
+}
+
+bool SnakeGame::isApplyTextEnteredUnicode(const sf::Uint32& unicode)
+{
+    if (textEnteredMap.find(unicode) != textEnteredMap.end())
+    {
+        return false;
+    }
+
+    textEnteredMap.emplace(unicode, 0.15f);
+
+    return true;
+}
+
+void SnakeGame::HandleTextEnteredEventsDelay(const float& deltaTime)
+{
+    std::set<sf::Uint32> toRemove;
+    for (auto& pair : textEnteredMap)
+    {
+        pair.second = pair.second - deltaTime;
+
+        if (pair.second <= 0)
+        {
+            toRemove.emplace(pair.first);
+        }
+    }
+
+    for (const auto& key : toRemove)
+    {
+        textEnteredMap.erase(key);
     }
 }
