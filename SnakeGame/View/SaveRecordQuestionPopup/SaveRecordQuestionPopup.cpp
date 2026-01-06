@@ -92,3 +92,23 @@ void SnakeGame::DrawRecordQuestionPopup(Game& game, sf::RenderWindow& window)
         window
     );
 }
+
+void SnakeGame::SwitchRecordQuestionOption()
+{
+    if (selectedOption == SelectedOption::YES)
+    {
+        selectedOption = SelectedOption::NO;
+    }
+    else
+    {
+        selectedOption = SelectedOption::YES;
+    }
+}
+
+void SnakeGame::HandleSelectedOptionClick(Game& game)
+{
+    if (selectedOption == SelectedOption::NO)
+    {
+        PushGameState(game, GameState::State::GAME_FINISH);
+    }
+}
