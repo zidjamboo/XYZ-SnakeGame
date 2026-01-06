@@ -6,6 +6,7 @@
 #include "MainMenuState.h"
 #include "PauseState.h"
 #include "PlayingState.h"
+#include "SaveRecordState.h"
 
 namespace SnakeGame
 {
@@ -17,6 +18,7 @@ namespace SnakeGame
             MAIN_MENU,
             PAUSE,
             PLAYING,
+            SAVE_RECORD,
             GAME_FINISH
         };
 
@@ -38,6 +40,10 @@ namespace SnakeGame
             {
                 PlayingState::onActive(game);
             }
+            else if (state == State::SAVE_RECORD)
+            {
+                SaveRecordState::onActive(game);
+            }
             else if (state == State::GAME_FINISH)
             {
                 GameFinishState::onActive(game);
@@ -57,6 +63,10 @@ namespace SnakeGame
             else if (state == State::PLAYING)
             {
                 PlayingState::onUpdate(game, deltaTime);
+            }
+            else if (state == State::SAVE_RECORD)
+            {
+                SaveRecordState::onUpdate(game, deltaTime);
             }
             else if (state == State::GAME_FINISH)
             {
@@ -78,6 +88,10 @@ namespace SnakeGame
             {
                 PlayingState::onDraw(game, window);
             }
+            else if (state == State::SAVE_RECORD)
+            {
+                SaveRecordState::onDraw(game, window);
+            }
             else if (state == State::GAME_FINISH)
             {
                 GameFinishState::onDraw(game, window);
@@ -97,6 +111,10 @@ namespace SnakeGame
             else if (state == State::PLAYING)
             {
                 PlayingState::onInactive();
+            }
+            else if (state == State::SAVE_RECORD)
+            {
+                SaveRecordState::onInactive();
             }
             else if (state == State::GAME_FINISH)
             {

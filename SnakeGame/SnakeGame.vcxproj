@@ -474,6 +474,7 @@
       <AdditionalIncludeDirectories>D:\Development\XYZ\Lessons\SnakeGame\\SFML\SFML-2.5.1\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="Game\GameState\SaveRecordState.cpp" />
     <ClCompile Include="Score\Score.cpp" />
     <ClCompile Include="Utils\KeyboardHelper.cpp" />
     <ClCompile Include="Utils\Math.cpp" />
@@ -571,6 +572,7 @@
     <ClInclude Include="Game\GameState\MainMenuState.h" />
     <ClInclude Include="Game\GameState\PauseState.h" />
     <ClInclude Include="Game\GameState\PlayingState.h" />
+    <ClInclude Include="Game\GameState\SaveRecordState.h" />
     <ClInclude Include="Score\Score.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="Utils\KeyboardHelper.h" />

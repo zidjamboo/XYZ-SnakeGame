@@ -58,7 +58,7 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime)
 
     if (isGameOver(game))
     {
-        PushGameState(game, GameState::State::GAME_FINISH);
+        PushGameState(game, GameState::State::SAVE_RECORD);
     }
 }
 
