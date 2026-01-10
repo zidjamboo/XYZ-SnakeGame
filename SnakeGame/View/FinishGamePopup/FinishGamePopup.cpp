@@ -4,12 +4,10 @@
 #include "../Fonts/Fonts.h"
 #include "../../Score/Score.h"
 #include "../../Constants.h"
+#include "../BasePopupContainer/BasePopupContainer.h"
 
 namespace
 {
-    constexpr float POPUP_X_SIZE = 300.f;
-    constexpr float POPUP_Y_SIZE = 500.f;
-    constexpr float BORDER_SIZE = 10.f;
     constexpr int MAX_RECORD_SIZE = 24;
     constexpr float FIX_FONT_ALIGN = 5.f;
 
@@ -19,35 +17,6 @@ namespace
     };
 
     SelectedButton selectedButton = SelectedButton::START_GAME;
-
-    void DrawPopupBackground(sf::RenderWindow& window)
-    {
-        sf::RectangleShape border;
-        border.setSize({POPUP_X_SIZE, POPUP_Y_SIZE});
-        sf::Vector2f whiteBackgroundPosition = {(SCREEN_WIDTH - POPUP_X_SIZE) / 2.f, (SCREEN_HEIGHT - POPUP_Y_SIZE) / 2.f};
-        border.setPosition(whiteBackgroundPosition);
-        border.setFillColor(sf::Color::White);
-
-        sf::RectangleShape innerRect;
-        innerRect.setSize({POPUP_X_SIZE - BORDER_SIZE * 2, POPUP_Y_SIZE - BORDER_SIZE * 2});
-        innerRect.setPosition({whiteBackgroundPosition.x + BORDER_SIZE, whiteBackgroundPosition.y + BORDER_SIZE});
-        innerRect.setFillColor(sf::Color::Black);
-
-        window.draw(border);
-        window.draw(innerRect);
-    }
-
-    void DrawTitleText(const SnakeGame::Fonts& fonts, sf::RenderWindow& window)
-    {
-        sf::Text title;
-        title.setFont(fonts.robotoBold);
-        title.setCharacterSize(28);
-        title.setFillColor(sf::Color::White);
-        title.setString(L"Количество очков");
-        title.setPosition({(SCREEN_WIDTH - title.getGlobalBounds().width) / 2, 100.f});
-
-        window.draw(title);
-    }
 
     void DrawCurrentScore(const SnakeGame::Fonts& fonts, const SnakeGame::Score& score, sf::RenderWindow& window)
     {
@@ -234,8 +203,8 @@ void SnakeGame::HandleSelectedFinishGameButtonClick(SnakeGame::Game& game)
 
 void SnakeGame::DrawFinishGamePopup(const Game& game, sf::RenderWindow& window)
 {
-    DrawPopupBackground(window);
-    DrawTitleText(game.fonts, window);
+    DrawBasePopupContainer(window);
+    DrawBasePopupTitle(L"Количество очков", game.fonts, window);
     DrawCurrentScore(game.fonts, game.score, window);
     DrawRecordTitle(game.fonts, window);
     std::vector<unsigned int> records = {100, 200, 59, 1};

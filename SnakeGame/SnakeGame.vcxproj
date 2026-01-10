@@ -556,8 +556,10 @@
       <AdditionalIncludeDirectories>D:\Development\XYZ\Lessons\SnakeGame\\SFML\SFML-2.5.1\include;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="View\BasePopupContainer\BasePopupContainer.cpp" />
     <ClCompile Include="View\FinishGamePopup\FinishGamePopup.cpp" />
     <ClCompile Include="View\Fonts\Fonts.cpp" />
+    <ClCompile Include="View\MainMenuView\MainMenuView.cpp" />
     <ClCompile Include="View\SaveRecordEnterName\SaveRecordInputNameView.cpp" />
     <ClCompile Include="View\SaveRecordQuestionPopup\SaveRecordQuestionPopup.cpp" />
     <ClCompile Include="View\ScoreTopPanel\ScoreTopPanel.cpp" />
@@ -582,8 +584,10 @@
     <ClInclude Include="Utils\KeyboardHelper.h" />
     <ClInclude Include="Utils\Math.h" />
     <ClInclude Include="View\Background\BackGround.h" />
+    <ClInclude Include="View\BasePopupContainer\BasePopupContainer.h" />
     <ClInclude Include="View\FinishGamePopup\FinishGamePopup.h" />
     <ClInclude Include="View\Fonts\Fonts.h" />
+    <ClInclude Include="View\MainMenuView\MainMenuView.h" />
     <ClInclude Include="View\SaveRecordEnterName\SaveRecordInputNameView.h" />
     <ClInclude Include="View\SaveRecordQuestionPopup\SaveRecordQuestionPopup.h" />
     <ClInclude Include="View\ScoreTopPanel\ScoreTopPanel.h" />
