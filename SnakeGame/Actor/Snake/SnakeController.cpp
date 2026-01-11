@@ -7,6 +7,8 @@
 
 namespace
 {
+    int headsToAddCount = 0;
+
     SnakeGame::SnakePart NextHead(SnakeGame::Snake& snake)
     {
         SnakeGame::SnakePart nextHead = snake.head();
@@ -94,8 +96,15 @@ void SnakeGame::DoSnakeAction(Game& game, const std::function<void()>& onAppleEa
     SnakePart nextHead = NextHead(game.snake);
     if (isEatApple(nextHead, game.apple))
     {
-        Grow(game.snake, nextHead);
+
+        headsToAddCount += game.gameMode.GetLengthModifier();
         onAppleEat();
+    }
+
+    if (headsToAddCount > 0)
+    {
+        Grow(game.snake, nextHead);
+        headsToAddCount--;
     }
     else
     {

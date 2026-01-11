@@ -77,5 +77,25 @@ namespace SnakeGame
 
             return 0;
         }
+
+        int GetLengthModifier() const
+        {
+            if (difficulty == Difficulty::EASY || difficulty == Difficulty::EASY_MID)
+            {
+                return 1;
+            }
+
+            if (difficulty == Difficulty::MID || difficulty == Difficulty::MID_HARD)
+            {
+                return 2;
+            }
+
+            if (difficulty == Difficulty::HARD)
+            {
+                return 3;
+            }
+
+            return 0;
+        }
     };
 }
