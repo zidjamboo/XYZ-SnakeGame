@@ -241,7 +241,6 @@
     <ClCompile Include="Field\Field.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Game\Game.cpp" />
-    <ClCompile Include="Game\GameMode\GameMode.cpp" />
     <ClCompile Include="Game\GameState\DifficultyScreenState.cpp" />
     <ClCompile Include="Game\GameState\GameFinishState.cpp" />
     <ClCompile Include="Game\GameState\GameState.cpp" />

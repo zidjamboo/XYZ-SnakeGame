@@ -17,5 +17,65 @@ namespace SnakeGame
         Difficulty difficulty;
 
         GameMode(Difficulty difficulty) : difficulty(difficulty) {}
+
+        float GetSpeedModifier() const
+        {
+            if (difficulty == Difficulty::EASY)
+            {
+                return 1.f;
+            }
+
+            if (difficulty == Difficulty::EASY_MID)
+            {
+                return 0.8f;
+            }
+
+            if (difficulty == Difficulty::MID)
+            {
+                return 0.6f;
+            }
+
+            if (difficulty == Difficulty::MID_HARD)
+            {
+                return 0.4f;
+            }
+
+            if (difficulty == Difficulty::HARD)
+            {
+                return 0.2f;
+            }
+
+            return 0.f;
+        }
+
+        int GetScoreModifier() const
+        {
+            if (difficulty == Difficulty::EASY)
+            {
+                return 5;
+            }
+
+            if (difficulty == Difficulty::EASY_MID)
+            {
+                return 10;
+            }
+
+            if (difficulty == Difficulty::MID)
+            {
+                return 30;
+            }
+
+            if (difficulty == Difficulty::MID_HARD)
+            {
+                return 60;
+            }
+
+            if (difficulty == Difficulty::HARD)
+            {
+                return 100;
+            }
+
+            return 0;
+        }
     };
 }

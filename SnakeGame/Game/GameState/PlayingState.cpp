@@ -10,12 +10,13 @@ namespace
 {
     float tickCounter = 0.f;
 
-    bool isTick(const float& deltaTime)
+    bool isTick(const SnakeGame::Game& game, const float& deltaTime)
     {
+        const float speedModifier = game.gameMode.GetSpeedModifier();
         tickCounter += deltaTime;
-        if (tickCounter >= 1.f)
+        if (tickCounter >= speedModifier)
         {
-            tickCounter = tickCounter - 1.f;
+            tickCounter = tickCounter - speedModifier;
             return true;
         }
         return false;
@@ -45,7 +46,7 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime, sf::E
 
     ChangeDirection(game.snake);
 
-    if (!isTick(deltaTime))
+    if (!isTick(game, deltaTime))
     {
         return;
     }
@@ -53,7 +54,7 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime, sf::E
     DoSnakeAction(game, [&game]()
     {
         ReplaceApple(game.apple);
-        game.score.value++;
+        game.score.value += game.gameMode.GetScoreModifier();
     });
 
     if (isGameOver(game))
