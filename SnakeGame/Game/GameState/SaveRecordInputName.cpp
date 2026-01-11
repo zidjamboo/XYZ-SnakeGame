@@ -32,6 +32,6 @@ void SnakeGame::SaveRecordEnterName::onDraw(Game& game, sf::RenderWindow& window
     DrawSaveRecordInputNameView(game.fonts, window);
 }
 
-void SnakeGame::SaveRecordEnterName::onInactive()
+void SnakeGame::SaveRecordEnterName::onInactive(Game& game)
 {
 }

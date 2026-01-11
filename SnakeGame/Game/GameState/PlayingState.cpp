@@ -71,6 +71,6 @@ void SnakeGame::PlayingState::onDraw(Game& game, sf::RenderWindow& window)
     DrawScoreTopPanel(game, window);
 }
 
-void SnakeGame::PlayingState::onInactive()
+void SnakeGame::PlayingState::onInactive(Game& game)
 {
 }

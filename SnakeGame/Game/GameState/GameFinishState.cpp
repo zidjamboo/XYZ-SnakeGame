@@ -26,6 +26,7 @@ void SnakeGame::GameFinishState::onDraw(Game& game, sf::RenderWindow& window)
     DrawFinishGamePopup(game, window);
 }
 
-void SnakeGame::GameFinishState::onInactive()
+void SnakeGame::GameFinishState::onInactive(Game& game)
 {
+    game.score.value = 0;
 }

@@ -31,6 +31,6 @@ void SnakeGame::MainMenuState::onDraw(Game& game, sf::RenderWindow& window)
     DrawMainMenu(game, window);
 }
 
-void SnakeGame::MainMenuState::onInactive()
+void SnakeGame::MainMenuState::onInactive(Game& game)
 {
 }

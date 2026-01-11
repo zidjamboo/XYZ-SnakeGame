@@ -18,7 +18,7 @@ void SnakeGame::PopGameState(Game& game)
 {
     GameState& state = game.stateStack.top();
     game.stateStack.pop();
-    state.onInactive();
+    state.onInactive(game);
 }
 
 void SnakeGame::ClearGameStateStack(Game& game)

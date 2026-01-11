@@ -26,6 +26,6 @@ void SnakeGame::SaveRecordState::onDraw(Game& game, sf::RenderWindow& window)
     DrawRecordQuestionPopup(game, window);
 }
 
-void SnakeGame::SaveRecordState::onInactive()
+void SnakeGame::SaveRecordState::onInactive(Game& game)
 {
 }

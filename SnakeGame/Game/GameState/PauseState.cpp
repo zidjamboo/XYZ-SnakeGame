@@ -25,6 +25,6 @@ void SnakeGame::PauseState::onDraw(Game& game, sf::RenderWindow& window)
     window.draw(rect);
 }
 
-void SnakeGame::PauseState::onInactive()
+void SnakeGame::PauseState::onInactive(Game& game)
 {
 }

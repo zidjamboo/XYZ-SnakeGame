@@ -126,35 +126,35 @@ namespace SnakeGame
             }
         }
 
-        void onInactive() const
+        void onInactive(Game& game) const
         {
             if (state == State::MAIN_MENU)
             {
-                MainMenuState::onInactive();
+                MainMenuState::onInactive(game);
             }
             else if (state == State::DIFFICULTY_SCREEN)
             {
-                DifficultyScreenState::onInactive();
+                DifficultyScreenState::onInactive(game);
             }
             else if (state == State::PAUSE)
             {
-                PauseState::onInactive();
+                PauseState::onInactive(game);
             }
             else if (state == State::PLAYING)
             {
-                PlayingState::onInactive();
+                PlayingState::onInactive(game);
             }
             else if (state == State::SAVE_RECORD)
             {
-                SaveRecordState::onInactive();
+                SaveRecordState::onInactive(game);
             }
             else if (state == State::SAVE_RECORD_ENTER_NAME)
             {
-                SaveRecordEnterName::onInactive();
+                SaveRecordEnterName::onInactive(game);
             }
             else if (state == State::GAME_FINISH)
             {
-                GameFinishState::onInactive();
+                GameFinishState::onInactive(game);
             }
         }
     };

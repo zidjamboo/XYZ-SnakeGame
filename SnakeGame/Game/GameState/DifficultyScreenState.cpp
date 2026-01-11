@@ -39,6 +39,6 @@ void SnakeGame::DifficultyScreenState::onDraw(const Game& game, sf::RenderWindow
     DrawScreenDifficulty(game, window);
 }
 
-void SnakeGame::DifficultyScreenState::onInactive()
+void SnakeGame::DifficultyScreenState::onInactive(Game& game)
 {
 }
