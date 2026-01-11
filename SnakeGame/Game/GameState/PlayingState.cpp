@@ -9,6 +9,7 @@
 namespace
 {
     float tickCounter = 0.f;
+    float startPauseTime;
 
     bool isTick(const SnakeGame::Game& game, const float& deltaTime)
     {
@@ -35,10 +36,17 @@ namespace
 void SnakeGame::PlayingState::onActive(Game& game)
 {
     RestartGame(game);
+    startPauseTime = 1.f;
 }
 
 void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime, sf::Event& event)
 {
+    if (startPauseTime > 0)
+    {
+        startPauseTime -= deltaTime;
+        return;
+    }
+
     if (isKeyPressed(sf::Keyboard::Escape))
     {
         PushGameState(game, GameState::State::PAUSE);
