@@ -1,6 +1,7 @@
 ﻿#include "MainMenuState.h"
 
 #include "../Game.h"
+#include "../../Utils/KeyboardHelper.h"
 #include "../../View/MainMenuView/MainMenuView.h"
 
 void SnakeGame::MainMenuState::onActive(Game& game)
@@ -9,9 +10,19 @@ void SnakeGame::MainMenuState::onActive(Game& game)
 
 void SnakeGame::MainMenuState::onUpdate(Game& game, const float& deltaTime, sf::Event& event)
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+    if (isKeyPressed(sf::Keyboard::Up) || isKeyPressed(sf::Keyboard::W))
     {
-        PushGameState(game, GameState::State::PLAYING);
+        SelectPrevMainMenuOption();
+    }
+
+    if (isKeyPressed(sf::Keyboard::Down) || isKeyPressed(sf::Keyboard::S))
+    {
+        SelectNextMainMenuOption();
+    }
+
+    if (isKeyPressed(sf::Keyboard::Enter) || isKeyPressed(sf::Keyboard::Return))
+    {
+        HandleMainMenuSelection(game);
     }
 }
 
