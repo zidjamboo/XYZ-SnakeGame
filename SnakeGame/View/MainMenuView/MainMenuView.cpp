@@ -24,7 +24,7 @@ namespace
         SelectedOption::EXIT
     };
 
-    SelectedOption seletedOption = SelectedOption::START_GAME;
+    SelectedOption selectedOption = SelectedOption::START_GAME;
 
     SelectedOption GetOptionByIndex(const int& index)
     {
@@ -34,7 +34,7 @@ namespace
     void DrawMenuOption(const wchar_t* str, SelectedOption option, const float& yPositon, const SnakeGame::Fonts& fonts, sf::RenderWindow& window)
     {
         sf::Color color;
-        if (seletedOption == option)
+        if (selectedOption == option)
         {
             color = sf::Color::Green;
         }
@@ -57,9 +57,9 @@ namespace
         SnakeGame::PushGameState(game, SnakeGame::GameState::State::PLAYING);
     }
 
-    void onDifficulty()
+    void onDifficulty(SnakeGame::Game& game)
     {
-
+        SnakeGame::PushGameState(game, SnakeGame::GameState::State::DIFFICULTY_SCREEN);
     }
 
     void onRecords()
@@ -91,45 +91,45 @@ void SnakeGame::DrawMainMenu(const Game& game, sf::RenderWindow& window)
 
 void SnakeGame::SelectNextMainMenuOption()
 {
-    int index = static_cast<int>(seletedOption) + 1;
+    int index = static_cast<int>(selectedOption) + 1;
     if (index > 4)
     {
         index = 0;
     }
 
-    seletedOption = GetOptionByIndex(index);
+    selectedOption = GetOptionByIndex(index);
 }
 
 void SnakeGame::SelectPrevMainMenuOption()
 {
-    int index = static_cast<int>(seletedOption) - 1;
+    int index = static_cast<int>(selectedOption) - 1;
     if (index < 0)
     {
         index = 4;
     }
 
-    seletedOption = GetOptionByIndex(index);
+    selectedOption = GetOptionByIndex(index);
 }
 
 void SnakeGame::HandleMainMenuSelection(Game& game)
 {
-    if (seletedOption == SelectedOption::START_GAME)
+    if (selectedOption == SelectedOption::START_GAME)
     {
         onStartGame(game);
     }
-    else if (seletedOption == SelectedOption::DIFFICULTY)
+    else if (selectedOption == SelectedOption::DIFFICULTY)
     {
-        onDifficulty();
+        onDifficulty(game);
     }
-    else if (seletedOption == SelectedOption::RECORDS)
+    else if (selectedOption == SelectedOption::RECORDS)
     {
         onRecords();
     }
-    else if (seletedOption == SelectedOption::SETTINGS)
+    else if (selectedOption == SelectedOption::SETTINGS)
     {
         onSettings();
     }
-    else if (seletedOption == SelectedOption::EXIT)
+    else if (selectedOption == SelectedOption::EXIT)
     {
         onExit();
     }

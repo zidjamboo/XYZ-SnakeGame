@@ -8,6 +8,7 @@
 #include "../Actor/Apple/Apple.h"
 #include "../Score/Score.h"
 #include "../View/Fonts/Fonts.h"
+#include "GameMode/GameMode.h"
 
 namespace SnakeGame
 {
@@ -21,6 +22,7 @@ namespace SnakeGame
         Apple apple;
 
         Score score;
+        GameMode gameMode = GameMode::Difficulty::EASY;
 
         Fonts fonts;
     };

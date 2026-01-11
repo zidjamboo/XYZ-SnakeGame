@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <SFML/Graphics.hpp>
 
+#include "DifficultyScreenState.h"
 #include "GameFinishState.h"
 #include "MainMenuState.h"
 #include "PauseState.h"
@@ -17,6 +18,7 @@ namespace SnakeGame
         enum class State : std::uint8_t
         {
             MAIN_MENU,
+            DIFFICULTY_SCREEN,
             PAUSE,
             PLAYING,
             SAVE_RECORD,
@@ -33,6 +35,10 @@ namespace SnakeGame
             if (state == State::MAIN_MENU)
             {
                 MainMenuState::onActive(game);
+            }
+            else if (state == State::DIFFICULTY_SCREEN)
+            {
+                DifficultyScreenState::onActive(game);
             }
             else if (state == State::PAUSE)
             {
@@ -62,6 +68,10 @@ namespace SnakeGame
             {
                 MainMenuState::onUpdate(game, deltaTime, event);
             }
+            else if (state == State::DIFFICULTY_SCREEN)
+            {
+                DifficultyScreenState::onUpdate(game, deltaTime, event);
+            }
             else if (state == State::PAUSE)
             {
                 PauseState::onUpdate(game, deltaTime, event);
@@ -90,6 +100,10 @@ namespace SnakeGame
             {
                 MainMenuState::onDraw(game, window);
             }
+            else if (state == State::DIFFICULTY_SCREEN)
+            {
+                DifficultyScreenState::onDraw(game, window);
+            }
             else if (state == State::PAUSE)
             {
                 PauseState::onDraw(game, window);
@@ -117,6 +131,10 @@ namespace SnakeGame
             if (state == State::MAIN_MENU)
             {
                 MainMenuState::onInactive();
+            }
+            else if (state == State::DIFFICULTY_SCREEN)
+            {
+                DifficultyScreenState::onInactive();
             }
             else if (state == State::PAUSE)
             {

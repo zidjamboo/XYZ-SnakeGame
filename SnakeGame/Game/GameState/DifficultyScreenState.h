@@ -1,0 +1,14 @@
+﻿#pragma once
+#include <SFML/Graphics.hpp>
+
+namespace SnakeGame
+{
+    struct Game;
+    namespace DifficultyScreenState
+    {
+        void onActive(Game& game);
+        void onUpdate(Game& game, const float& deltaTime, sf::Event& event);
+        void onDraw(const Game& game, sf::RenderWindow& window);
+        void onInactive();
+    }
+}

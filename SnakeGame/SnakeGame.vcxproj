@@ -241,6 +241,8 @@
     <ClCompile Include="Field\Field.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\GameMode\GameMode.cpp" />
+    <ClCompile Include="Game\GameState\DifficultyScreenState.cpp" />
     <ClCompile Include="Game\GameState\GameFinishState.cpp" />
     <ClCompile Include="Game\GameState\GameState.cpp" />
     <ClCompile Include="Game\GameState\MainMenuState.cpp">
@@ -557,6 +559,7 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="View\BasePopupContainer\BasePopupContainer.cpp" />
+    <ClCompile Include="View\DifficultyScreenView\DifficultyScreenView.cpp" />
     <ClCompile Include="View\FinishGamePopup\FinishGamePopup.cpp" />
     <ClCompile Include="View\Fonts\Fonts.cpp" />
     <ClCompile Include="View\MainMenuView\MainMenuView.cpp" />
@@ -572,6 +575,8 @@
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Field\Field.h" />
     <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\GameMode\GameMode.h" />
+    <ClInclude Include="Game\GameState\DifficultyScreenState.h" />
     <ClInclude Include="Game\GameState\GameFinishState.h" />
     <ClInclude Include="Game\GameState\GameState.h" />
     <ClInclude Include="Game\GameState\MainMenuState.h" />
@@ -585,6 +590,7 @@
     <ClInclude Include="Utils\Math.h" />
     <ClInclude Include="View\Background\BackGround.h" />
     <ClInclude Include="View\BasePopupContainer\BasePopupContainer.h" />
+    <ClInclude Include="View\DifficultyScreenView\DifficultyScreenView.h" />
     <ClInclude Include="View\FinishGamePopup\FinishGamePopup.h" />
     <ClInclude Include="View\Fonts\Fonts.h" />
     <ClInclude Include="View\MainMenuView\MainMenuView.h" />
