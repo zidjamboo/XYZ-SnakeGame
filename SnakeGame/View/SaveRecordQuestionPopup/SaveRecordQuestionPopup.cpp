@@ -105,7 +105,7 @@ void SnakeGame::SwitchRecordQuestionOption()
     }
 }
 
-void SnakeGame::HandleSelectedOptionClick(Game& game)
+void SnakeGame::HandleSelectedRecordQuestionOptionClick(Game& game)
 {
     if (selectedOption == SelectedOption::NO)
     {
@@ -115,4 +115,9 @@ void SnakeGame::HandleSelectedOptionClick(Game& game)
     {
         PushGameState(game, GameState::State::SAVE_RECORD_ENTER_NAME);
     }
+}
+
+void SnakeGame::SelectDefaultRecordQuestionOption()
+{
+    selectedOption = SelectedOption::NO;
 }

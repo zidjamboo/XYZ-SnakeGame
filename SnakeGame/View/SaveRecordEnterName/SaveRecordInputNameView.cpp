@@ -38,3 +38,13 @@ void SnakeGame::SaveRecordEnterNameEraseLastCharacter()
         name.erase(name.getSize() - 1, 1);
     }
 }
+
+sf::String SnakeGame::SaveRecordEnterNameGetName()
+{
+    return name;
+}
+
+void SnakeGame::SaveRecordEnterNameClear()
+{
+    name.clear();
+}

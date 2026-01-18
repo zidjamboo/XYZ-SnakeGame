@@ -62,7 +62,7 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime, sf::E
     DoSnakeAction(game, [&game]()
     {
         ReplaceApple(game.apple);
-        game.score.value += game.gameMode.GetScoreModifier();
+        game.currentScore.value += game.gameMode.GetScoreModifier();
     });
 
     if (isGameOver(game))

@@ -62,9 +62,9 @@ namespace
         SnakeGame::PushGameState(game, SnakeGame::GameState::State::DIFFICULTY_SCREEN);
     }
 
-    void onRecords()
+    void onRecords(SnakeGame::Game& game)
     {
-
+        SnakeGame::PushGameState(game, SnakeGame::GameState::State::RECORD_SCREEN);
     }
 
     void onSettings()
@@ -123,7 +123,7 @@ void SnakeGame::HandleMainMenuSelection(Game& game)
     }
     else if (selectedOption == SelectedOption::RECORDS)
     {
-        onRecords();
+        onRecords(game);
     }
     else if (selectedOption == SelectedOption::SETTINGS)
     {

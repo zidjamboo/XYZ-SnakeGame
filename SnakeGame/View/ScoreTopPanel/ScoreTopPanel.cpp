@@ -12,7 +12,7 @@ void SnakeGame::DrawScoreTopPanel(const Game& game, sf::RenderWindow& window)
 
     sf::Text scoreText;
     scoreText.setFont(game.fonts.robotoRegular);
-    scoreText.setString(std::to_string(game.score.value));
+    scoreText.setString(std::to_string(game.currentScore.value));
     scoreText.setCharacterSize(22);
     scoreText.setFillColor(sf::Color::Black);
     scoreText.setPosition({10.f, 0.f});

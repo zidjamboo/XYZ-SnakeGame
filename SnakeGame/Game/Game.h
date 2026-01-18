@@ -6,7 +6,7 @@
 #include "../View/Background/BackGround.h"
 #include "../Actor/Snake/Snake.h"
 #include "../Actor/Apple/Apple.h"
-#include "../Score/Score.h"
+#include "../Score/ScoreTable.h"
 #include "../View/Fonts/Fonts.h"
 #include "GameMode/GameMode.h"
 
@@ -21,7 +21,8 @@ namespace SnakeGame
         Snake snake;
         Apple apple;
 
-        Score score;
+        ScoreTable savedScores;
+        Score currentScore;
         GameMode gameMode = GameMode::Difficulty::EASY;
 
         Fonts fonts;

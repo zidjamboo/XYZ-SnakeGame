@@ -17,7 +17,7 @@ void SnakeGame::SaveRecordState::onUpdate(Game& game, const float& deltaTime, sf
 
     if (isKeyPressed(sf::Keyboard::Enter) || isKeyPressed(sf::Keyboard::Return) || isKeyPressed(sf::Keyboard::Space))
     {
-        HandleSelectedOptionClick(game);
+        HandleSelectedRecordQuestionOptionClick(game);
     }
 }
 
@@ -28,4 +28,5 @@ void SnakeGame::SaveRecordState::onDraw(Game& game, sf::RenderWindow& window)
 
 void SnakeGame::SaveRecordState::onInactive(Game& game)
 {
+    SelectDefaultRecordQuestionOption();
 }

@@ -8,5 +8,5 @@ namespace SnakeGame
 
     void SwitchSelectedFinishGameButton();
     void HandleSelectedFinishGameButtonClick(Game& game);
-    void DrawFinishGamePopup(const Game& game, sf::RenderWindow& window);
+    void DrawFinishGamePopup(Game& game, sf::RenderWindow& window);
 }

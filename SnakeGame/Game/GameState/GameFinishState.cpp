@@ -28,6 +28,6 @@ void SnakeGame::GameFinishState::onDraw(Game& game, sf::RenderWindow& window)
 
 void SnakeGame::GameFinishState::onInactive(Game& game)
 {
-    game.score.value = 0;
+    game.currentScore.value = 0;
     game.snake.direction = Direction::UP;
 }

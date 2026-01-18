@@ -2,13 +2,12 @@
 
 #include "../../Game/Game.h"
 #include "../Fonts/Fonts.h"
-#include "../../Score/Score.h"
 #include "../../Constants.h"
 #include "../BasePopupContainer/BasePopupContainer.h"
 
 namespace
 {
-    constexpr int MAX_RECORD_SIZE = 24;
+    constexpr float RECORD_ROW_WIDTH = 150.f;
     constexpr float FIX_FONT_ALIGN = 5.f;
 
     enum class SelectedButton
@@ -37,65 +36,53 @@ namespace
         title.setCharacterSize(18);
         title.setFillColor(sf::Color::White);
         title.setString(L"Рекорды");
-        title.setPosition({(SCREEN_WIDTH - title.getGlobalBounds().width) / 2, 200.f});
+        title.setPosition({(SCREEN_WIDTH - title.getGlobalBounds().width) / 2, 190.f});
 
         window.draw(title);
     }
 
-    std::string repeatSpace(int size)
+    void DrawRecordRow(
+        const SnakeGame::ScoreRow& scoreRow,
+        const float& yPosition,
+        const SnakeGame::Fonts& fonts,
+        sf::RenderWindow& window)
     {
-        std::string result;
-        result.reserve(size);
+        float recordStartXPosition = (SCREEN_WIDTH - RECORD_ROW_WIDTH) / 2;
 
-        for (int i = 0; i < size; ++i)
-        {
-            result.append(" ");
-        }
+        sf::Text userNameText;
+        userNameText.setFont(fonts.robotoRegular);
+        userNameText.setCharacterSize(16);
+        userNameText.setFillColor(sf::Color::White);
+        userNameText.setString(scoreRow.userName);
+        userNameText.setPosition({recordStartXPosition, yPosition});
 
-        return result;
+        sf::Text scoreText;
+        scoreText.setFont(fonts.robotoRegular);
+        scoreText.setCharacterSize(16);
+        scoreText.setFillColor(sf::Color::White);
+        scoreText.setString(std::to_string(scoreRow.score.value));
+        scoreText.setPosition({recordStartXPosition + RECORD_ROW_WIDTH - scoreText.getGlobalBounds().width, yPosition});
+
+        window.draw(userNameText);
+        window.draw(scoreText);
     }
 
-    std::string createRecordString(const int& lineNumber, const unsigned int& record)
+    void DrawRecords(const SnakeGame::Fonts& fonts, SnakeGame::ScoreTable& scoreTable, sf::RenderWindow& window)
     {
-        std::string result;
-        result.append(std::to_string(lineNumber));
-        result.append(".");
+        std::sort(scoreTable.rows.begin(), scoreTable.rows.end(), std::greater<>());
 
-        std::string recordValueString = std::to_string(record);
-
-        std::string spaces = repeatSpace(MAX_RECORD_SIZE - static_cast<int>(result.size() + recordValueString.size()));
-
-        result.append(spaces);
-        result.append(recordValueString);
-
-        return result;
-    }
-
-    void DrawRecords(const SnakeGame::Fonts& fonts, std::vector<unsigned int>& records, sf::RenderWindow& window)
-    {
-        std::sort(records.begin(), records.end(), std::greater<>());
-
-        float startYPosition = 230.f;
-        int counter = 1;
-        for (unsigned int record : records)
+        float yPosition = 230.f;
+        int counter = 0;
+        for (const SnakeGame::ScoreRow& row : scoreTable.rows)
         {
-            sf::Text text;
-            text.setFont(fonts.robotoRegular);
-            text.setCharacterSize(18);
-            text.setFillColor(sf::Color::White);
-            text.setString(createRecordString(counter, record));
-            text.setPosition((SCREEN_WIDTH - text.getGlobalBounds().width) / 2, startYPosition);
+            DrawRecordRow(row, yPosition, fonts, window);
 
-            window.draw(text);
-
-            counter++;
-
-            if (counter > 3)
+            if (++counter > 4)
             {
                 break;
             }
 
-            startYPosition += 20.f;
+            yPosition += 20.f;
         }
     }
 
@@ -115,7 +102,7 @@ namespace
         buttonBackgrond.setFillColor(color);
         sf::Vector2f buttonBackgoundSize = {200.f, 75.f};
         buttonBackgrond.setSize(buttonBackgoundSize);
-        sf::Vector2f buttonBackgroundPosition = {(SCREEN_WIDTH - buttonBackgrond.getGlobalBounds().width) / 2, 325.f};
+        sf::Vector2f buttonBackgroundPosition = {(SCREEN_WIDTH - buttonBackgrond.getGlobalBounds().width) / 2, 350.f};
         buttonBackgrond.setPosition(buttonBackgroundPosition);
 
         sf::Text buttonText;
@@ -153,7 +140,7 @@ namespace
         buttonBackgrond.setFillColor(color);
         sf::Vector2f buttonBackgoundSize = {200.f, 75.f};
         buttonBackgrond.setSize(buttonBackgoundSize);
-        sf::Vector2f buttonBackgroundPosition = {(SCREEN_WIDTH - buttonBackgrond.getGlobalBounds().width) / 2, 425.f};
+        sf::Vector2f buttonBackgroundPosition = {(SCREEN_WIDTH - buttonBackgrond.getGlobalBounds().width) / 2, 440.f};
         buttonBackgrond.setPosition(buttonBackgroundPosition);
 
         sf::Text buttonText;
@@ -201,14 +188,13 @@ void SnakeGame::HandleSelectedFinishGameButtonClick(SnakeGame::Game& game)
     }
 }
 
-void SnakeGame::DrawFinishGamePopup(const Game& game, sf::RenderWindow& window)
+void SnakeGame::DrawFinishGamePopup(Game& game, sf::RenderWindow& window)
 {
     DrawBasePopupContainer(window);
     DrawBasePopupTitle(L"Количество очков", game.fonts, window);
-    DrawCurrentScore(game.fonts, game.score, window);
+    DrawCurrentScore(game.fonts, game.currentScore, window);
     DrawRecordTitle(game.fonts, window);
-    std::vector<unsigned int> records = {100, 200, 59, 1};
-    DrawRecords(game.fonts, records, window);
+    DrawRecords(game.fonts, game.savedScores, window);
     DrawStartGameButton(game.fonts, window);
     DrawToMainMenuButton(game.fonts, window);
 }
