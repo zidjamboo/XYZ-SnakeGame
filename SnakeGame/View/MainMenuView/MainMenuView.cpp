@@ -67,9 +67,9 @@ namespace
         SnakeGame::PushGameState(game, SnakeGame::GameState::State::RECORD_SCREEN);
     }
 
-    void onSettings()
+    void onSettings(SnakeGame::Game& game)
     {
-
+        SnakeGame::PushGameState(game, SnakeGame::GameState::State::SETTINGS_SCREEN);
     }
 
     void onExit()
@@ -127,7 +127,7 @@ void SnakeGame::HandleMainMenuSelection(Game& game)
     }
     else if (selectedOption == SelectedOption::SETTINGS)
     {
-        onSettings();
+        onSettings(game);
     }
     else if (selectedOption == SelectedOption::EXIT)
     {

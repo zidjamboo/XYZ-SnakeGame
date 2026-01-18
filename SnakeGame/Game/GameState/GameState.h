@@ -10,6 +10,7 @@
 #include "RecordScreenState.h"
 #include "SaveRecordInputNameState.h"
 #include "SaveRecordState.h"
+#include "SettingsScreenState.h"
 
 namespace SnakeGame
 {
@@ -21,6 +22,7 @@ namespace SnakeGame
             MAIN_MENU,
             DIFFICULTY_SCREEN,
             RECORD_SCREEN,
+            SETTINGS_SCREEN,
             PAUSE,
             PLAYING,
             SAVE_RECORD,
@@ -45,6 +47,10 @@ namespace SnakeGame
             else if (state == State::RECORD_SCREEN)
             {
                 RecordScreenState::onActive(game);
+            }
+            else if (state == State::SETTINGS_SCREEN)
+            {
+                SettingsScreenState::onActive(game);
             }
             else if (state == State::PAUSE)
             {
@@ -82,6 +88,10 @@ namespace SnakeGame
             {
                 RecordScreenState::onUpdate(game, deltaTime, event);
             }
+            else if (state == State::SETTINGS_SCREEN)
+            {
+                SettingsScreenState::onUpdate(game, deltaTime, event);
+            }
             else if (state == State::PAUSE)
             {
                 PauseState::onUpdate(game, deltaTime, event);
@@ -118,6 +128,10 @@ namespace SnakeGame
             {
                 RecordScreenState::onDraw(game, window);
             }
+            else if (state == State::SETTINGS_SCREEN)
+            {
+                SettingsScreenState::onDraw(game, window);
+            }
             else if (state == State::PAUSE)
             {
                 PauseState::onDraw(game, window);
@@ -153,6 +167,10 @@ namespace SnakeGame
             else if (state == State::RECORD_SCREEN)
             {
                 RecordScreenState::onInactive(game);
+            }
+            else if (state == State::SETTINGS_SCREEN)
+            {
+                SettingsScreenState::onInactive(game);
             }
             else if (state == State::PAUSE)
             {
