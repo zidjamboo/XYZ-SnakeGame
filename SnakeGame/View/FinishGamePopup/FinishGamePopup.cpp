@@ -4,10 +4,10 @@
 #include "../Fonts/Fonts.h"
 #include "../../Constants.h"
 #include "../BasePopupContainer/BasePopupContainer.h"
+#include "../CommonRecordsView/CommonRecordView.h"
 
 namespace
 {
-    constexpr float RECORD_ROW_WIDTH = 150.f;
     constexpr float FIX_FONT_ALIGN = 5.f;
 
     enum class SelectedButton
@@ -39,51 +39,6 @@ namespace
         title.setPosition({(SCREEN_WIDTH - title.getGlobalBounds().width) / 2, 190.f});
 
         window.draw(title);
-    }
-
-    void DrawRecordRow(
-        const SnakeGame::ScoreRow& scoreRow,
-        const float& yPosition,
-        const SnakeGame::Fonts& fonts,
-        sf::RenderWindow& window)
-    {
-        float recordStartXPosition = (SCREEN_WIDTH - RECORD_ROW_WIDTH) / 2;
-
-        sf::Text userNameText;
-        userNameText.setFont(fonts.robotoRegular);
-        userNameText.setCharacterSize(16);
-        userNameText.setFillColor(sf::Color::White);
-        userNameText.setString(scoreRow.userName);
-        userNameText.setPosition({recordStartXPosition, yPosition});
-
-        sf::Text scoreText;
-        scoreText.setFont(fonts.robotoRegular);
-        scoreText.setCharacterSize(16);
-        scoreText.setFillColor(sf::Color::White);
-        scoreText.setString(std::to_string(scoreRow.score.value));
-        scoreText.setPosition({recordStartXPosition + RECORD_ROW_WIDTH - scoreText.getGlobalBounds().width, yPosition});
-
-        window.draw(userNameText);
-        window.draw(scoreText);
-    }
-
-    void DrawRecords(const SnakeGame::Fonts& fonts, SnakeGame::ScoreTable& scoreTable, sf::RenderWindow& window)
-    {
-        std::sort(scoreTable.rows.begin(), scoreTable.rows.end(), std::greater<>());
-
-        float yPosition = 230.f;
-        int counter = 0;
-        for (const SnakeGame::ScoreRow& row : scoreTable.rows)
-        {
-            DrawRecordRow(row, yPosition, fonts, window);
-
-            if (++counter > 4)
-            {
-                break;
-            }
-
-            yPosition += 20.f;
-        }
     }
 
     void DrawStartGameButton(const SnakeGame::Fonts& fonts, sf::RenderWindow& window)
@@ -138,8 +93,8 @@ namespace
 
         sf::RectangleShape buttonBackgrond;
         buttonBackgrond.setFillColor(color);
-        sf::Vector2f buttonBackgoundSize = {200.f, 75.f};
-        buttonBackgrond.setSize(buttonBackgoundSize);
+        sf::Vector2f buttonBackgroundSize = {200.f, 75.f};
+        buttonBackgrond.setSize(buttonBackgroundSize);
         sf::Vector2f buttonBackgroundPosition = {(SCREEN_WIDTH - buttonBackgrond.getGlobalBounds().width) / 2, 440.f};
         buttonBackgrond.setPosition(buttonBackgroundPosition);
 
@@ -150,7 +105,7 @@ namespace
         buttonText.setString(L"В главное меню");
         buttonText.setPosition({
             (SCREEN_WIDTH - buttonText.getGlobalBounds().width) / 2,
-            buttonBackgroundPosition.y + (buttonBackgoundSize.y - buttonText.getGlobalBounds().height) / 2 - FIX_FONT_ALIGN
+            buttonBackgroundPosition.y + (buttonBackgroundSize.y - buttonText.getGlobalBounds().height) / 2 - FIX_FONT_ALIGN
         });
 
         window.draw(buttonBackgrond);
@@ -194,7 +149,7 @@ void SnakeGame::DrawFinishGamePopup(Game& game, sf::RenderWindow& window)
     DrawBasePopupTitle(L"Количество очков", game.fonts, window);
     DrawCurrentScore(game.fonts, game.currentScore, window);
     DrawRecordTitle(game.fonts, window);
-    DrawRecords(game.fonts, game.savedScores, window);
+    DrawRecords(game.fonts, game.savedScores, 5, 230.f, window);
     DrawStartGameButton(game.fonts, window);
     DrawToMainMenuButton(game.fonts, window);
 }
