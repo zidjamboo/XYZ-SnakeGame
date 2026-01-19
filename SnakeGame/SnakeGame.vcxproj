@@ -479,6 +479,7 @@
     <ClCompile Include="Game\GameState\SaveRecordInputNameState.cpp" />
     <ClCompile Include="Game\GameState\SaveRecordState.cpp" />
     <ClCompile Include="Game\GameState\SettingsScreenState.cpp" />
+    <ClCompile Include="Sound\SoundResources.cpp" />
     <ClCompile Include="Utils\KeyboardHelper.cpp" />
     <ClCompile Include="Utils\Math.cpp" />
     <ClCompile Include="View\Background\BackGround.cpp">
@@ -590,6 +591,7 @@
     <ClInclude Include="Game\GameState\SaveRecordState.h" />
     <ClInclude Include="Game\GameState\SettingsScreenState.h" />
     <ClInclude Include="Score\ScoreTable.h" />
+    <ClInclude Include="Sound\SoundResources.h" />
     <ClInclude Include="Sound\SoundSettings.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="Utils\KeyboardHelper.h" />

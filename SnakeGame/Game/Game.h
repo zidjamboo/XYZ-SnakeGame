@@ -7,6 +7,7 @@
 #include "../Actor/Snake/Snake.h"
 #include "../Actor/Apple/Apple.h"
 #include "../Score/ScoreTable.h"
+#include "../Sound/SoundResources.h"
 #include "../Sound/SoundSettings.h"
 #include "../View/Fonts/Fonts.h"
 #include "GameMode/GameMode.h"
@@ -24,9 +25,11 @@ namespace SnakeGame
 
         ScoreTable savedScores;
         Score currentScore;
+
         GameMode gameMode = GameMode::Difficulty::EASY;
 
         SoundSettings soundSettings;
+        SoundResources soundResources;
 
         Fonts fonts;
     };
