@@ -63,11 +63,13 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime, sf::E
     {
         ReplaceApple(game.apple);
         game.currentScore.value += game.gameMode.GetScoreModifier();
+        PlaySound(game, game.soundResources.hit);
     });
 
     if (isGameOver(game))
     {
         PushGameState(game, GameState::State::SAVE_RECORD);
+        PlaySound(game, game.soundResources.lose);
     }
 }
 

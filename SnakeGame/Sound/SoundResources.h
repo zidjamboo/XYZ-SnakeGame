@@ -21,4 +21,5 @@ namespace SnakeGame
 
     struct Game;
     void InitSoundResources(Game& game);
+    void PlaySound(Game& game, sf::Sound& sound);
 }

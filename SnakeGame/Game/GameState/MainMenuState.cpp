@@ -13,11 +13,13 @@ void SnakeGame::MainMenuState::onUpdate(Game& game, const float& deltaTime, sf::
     if (isKeyPressed(sf::Keyboard::Up) || isKeyPressed(sf::Keyboard::W))
     {
         SelectPrevMainMenuOption();
+        PlaySound(game, game.soundResources.menuHover);
     }
 
     if (isKeyPressed(sf::Keyboard::Down) || isKeyPressed(sf::Keyboard::S))
     {
         SelectNextMainMenuOption();
+        PlaySound(game, game.soundResources.menuHover);
     }
 
     if (isKeyPressed(sf::Keyboard::Enter) || isKeyPressed(sf::Keyboard::Return))

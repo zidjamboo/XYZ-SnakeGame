@@ -25,6 +25,15 @@ namespace SnakeGame
     void UpdateGame(Game& game, const float& deltaTime, sf::Event& event)
     {
         TopGameState(game).onUpdate(game, deltaTime, event);
+        sf::SoundSource::Status status = game.soundResources.background.getStatus();
+        if (game.soundSettings.isMusicEnabled && status == sf::SoundSource::Status::Stopped)
+        {
+            game.soundResources.background.play();
+        }
+        else if (!game.soundSettings.isMusicEnabled && status == sf::SoundSource::Status::Playing)
+        {
+            game.soundResources.background.stop();
+        }
     }
 
     void DrawGame(Game& game, sf::RenderWindow& window)

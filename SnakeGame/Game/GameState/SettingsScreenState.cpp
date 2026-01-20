@@ -1,5 +1,6 @@
 ﻿#include "SettingsScreenState.h"
 
+#include "../Game.h"
 #include "../../Utils/KeyboardHelper.h"
 #include "../../View/SettingsScreenView/SettingsScreenView.h"
 
@@ -13,11 +14,17 @@ void SnakeGame::SettingsScreenState::onUpdate(Game& game, const float& deltaTime
         isKeyPressed(sf::Keyboard::W) || isKeyPressed(sf::Keyboard::S))
     {
         SwitchSettingsScreenOption();
+        PlaySound(game, game.soundResources.menuHover);
     }
 
     if (isKeyPressed(sf::Keyboard::Enter) || (isKeyPressed(sf::Keyboard::Return)))
     {
         HandleSettingsScreenOptionClick(game);
+    }
+
+    if (isKeyPressed(sf::Keyboard::Escape) || isKeyPressed(sf::Keyboard::B))
+    {
+        PopGameState(game);
     }
 }
 

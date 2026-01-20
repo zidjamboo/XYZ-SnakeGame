@@ -20,11 +20,13 @@ void SnakeGame::DifficultyScreenState::onUpdate(Game& game, const float& deltaTi
     if (isKeyPressed(sf::Keyboard::Down) || isKeyPressed(sf::Keyboard::S))
     {
         SelectNextDifficultyOption();
+        PlaySound(game, game.soundResources.menuHover);
     }
 
     if (isKeyPressed(sf::Keyboard::Up) || isKeyPressed(sf::Keyboard::W))
     {
         SelectPrevDifficultyOption();
+        PlaySound(game, game.soundResources.menuHover);
     }
 
     if (isKeyPressed(sf::Keyboard::Enter) || isKeyPressed(sf::Keyboard::Return))

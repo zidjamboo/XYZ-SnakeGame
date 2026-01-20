@@ -15,4 +15,13 @@ void SnakeGame::InitSoundResources(Game& game)
     game.soundResources.menuHover.setBuffer(game.soundResources.menuHoverBuffer);
 
     assert(game.soundResources.background.openFromFile("Resources\\Sounds\\Clinthammer__Background_Music.wav"));
+    game.soundResources.background.setLoop(true);
+}
+
+void SnakeGame::PlaySound(Game& game, sf::Sound& sound)
+{
+    if (game.soundSettings.isSoundEnabled)
+    {
+        sound.play();
+    }
 }
