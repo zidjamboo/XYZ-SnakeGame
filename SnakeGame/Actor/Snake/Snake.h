@@ -32,6 +32,6 @@ namespace SnakeGame
     struct Game;
 
     void InitSnake(Snake& snake);
-    void DrawSnake(const Snake& snake, sf::RenderWindow & window);
+    void DrawSnake(const Game& game, sf::RenderWindow & window);
     bool isSnakeSelfCollide(Snake& snake);
 }

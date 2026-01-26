@@ -8,6 +8,7 @@ namespace SnakeGame
         LEFT,
         UP,
         RIGHT,
-        Down
+        DOWN,
+        NONE
     };
 }

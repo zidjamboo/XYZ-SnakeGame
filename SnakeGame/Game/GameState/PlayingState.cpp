@@ -76,7 +76,7 @@ void SnakeGame::PlayingState::onUpdate(Game& game, const float& deltaTime, sf::E
 void SnakeGame::PlayingState::onDraw(Game& game, sf::RenderWindow& window)
 {
     window.draw(game.background.sprite);
-    DrawSnake(game.snake, window);
+    DrawSnake(game, window);
     DrawApple(game, window);
     DrawScoreTopPanel(game, window);
 }

@@ -24,7 +24,7 @@ namespace
         {
             nextHead.position.x += 1;
         }
-        else if (snake.direction == SnakeGame::Direction::Down)
+        else if (snake.direction == SnakeGame::Direction::DOWN)
         {
             nextHead.position.y += 1;
         }
@@ -74,7 +74,7 @@ void SnakeGame::ChangeDirection(Snake& snake)
         snake.direction = Direction::LEFT;
     }
     else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) &&
-        snake.lastDirection != Direction::Down)
+        snake.lastDirection != Direction::DOWN)
     {
         snake.direction = Direction::UP;
     }
@@ -86,7 +86,7 @@ void SnakeGame::ChangeDirection(Snake& snake)
     else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) &&
         snake.lastDirection != Direction::UP)
     {
-        snake.direction = Direction::Down;
+        snake.direction = Direction::DOWN;
     }
 }
 
