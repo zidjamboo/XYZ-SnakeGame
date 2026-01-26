@@ -52,27 +52,27 @@ namespace SnakeGame
         {
             if (difficulty == Difficulty::EASY)
             {
-                return 5;
+                return 2;
             }
 
             if (difficulty == Difficulty::EASY_MID)
             {
-                return 10;
+                return 4;
             }
 
             if (difficulty == Difficulty::MID)
             {
-                return 30;
+                return 6;
             }
 
             if (difficulty == Difficulty::MID_HARD)
             {
-                return 60;
+                return 8;
             }
 
             if (difficulty == Difficulty::HARD)
             {
-                return 100;
+                return 10;
             }
 
             return 0;
