@@ -12,5 +12,5 @@ namespace SnakeGame
     struct Game;
     void InitApple(Apple& apple);
     void ReplaceApple(Apple& apple);
-    void DrawApple(const Apple& apple, sf::RenderWindow& window);
+    void DrawApple(const Game& game, sf::RenderWindow& window);
 }

@@ -483,6 +483,7 @@
     <ClCompile Include="Texture\Textures.cpp" />
     <ClCompile Include="Utils\KeyboardHelper.cpp" />
     <ClCompile Include="Utils\Math.cpp" />
+    <ClCompile Include="Utils\SpriteUtils.cpp" />
     <ClCompile Include="View\Background\BackGround.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -598,6 +599,7 @@
     <ClInclude Include="Types.h" />
     <ClInclude Include="Utils\KeyboardHelper.h" />
     <ClInclude Include="Utils\Math.h" />
+    <ClInclude Include="Utils\SpriteUtils.h" />
     <ClInclude Include="View\Background\BackGround.h" />
     <ClInclude Include="View\BasePopupContainer\BasePopupContainer.h" />
     <ClInclude Include="View\CommonRecordsView\CommonRecordView.h" />

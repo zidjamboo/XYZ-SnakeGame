@@ -3,6 +3,7 @@
 #include "../../Field/Field.h"
 #include "../../Game/Game.h"
 #include "../../Utils/Math.h"
+#include "../../Utils/SpriteUtils.h"
 
 void SnakeGame::InitApple(Apple& apple)
 {
@@ -21,12 +22,13 @@ void SnakeGame::ReplaceApple(Apple& apple)
     apple.position = freePositions[GetRandomInt(0, static_cast<int>(freePositions.size()) - 1)];
 }
 
-void SnakeGame::DrawApple(const Apple& apple, sf::RenderWindow& window)
+void SnakeGame::DrawApple(const Game& game, sf::RenderWindow& window)
 {
-    sf::RectangleShape rect;
-    rect.setPosition(ToDrawPosition(apple.position));
-    rect.setSize({CELL_SIZE, CELL_SIZE});
-    rect.setFillColor(sf::Color::Green);
+    sf::Sprite appleSprite;
+    appleSprite.setTexture(game.textures.appleTextures.appleTexture);
+    appleSprite.setScale(GetSpriteScale(
+        appleSprite, {static_cast<float>(CELL_SIZE), static_cast<float>(CELL_SIZE)}));
+    appleSprite.setPosition(ToDrawPosition(game.apple.position));
 
-    window.draw(rect);
+    window.draw(appleSprite);
 }

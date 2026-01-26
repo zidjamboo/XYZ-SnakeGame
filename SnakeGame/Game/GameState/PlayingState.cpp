@@ -77,7 +77,7 @@ void SnakeGame::PlayingState::onDraw(Game& game, sf::RenderWindow& window)
 {
     window.draw(game.background.sprite);
     DrawSnake(game.snake, window);
-    DrawApple(game.apple, window);
+    DrawApple(game, window);
     DrawScoreTopPanel(game, window);
 }
 
