@@ -185,7 +185,6 @@ void SnakeGame::DrawSnake(const Game& game, sf::RenderWindow& window)
 
         sf::Sprite snakeSprite;
         snakeSprite.setTexture(texture);
-        snakeSprite.setColor(sf::Color::Yellow);
         snakeSprite.setScale(GetSpriteScale(snakeSprite, {CELL_SIZE, CELL_SIZE}));
         snakeSprite.setPosition(ToDrawPosition(it->position));
 
