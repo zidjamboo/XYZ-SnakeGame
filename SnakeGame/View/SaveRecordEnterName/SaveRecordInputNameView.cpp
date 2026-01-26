@@ -3,7 +3,8 @@
 
 namespace
 {
-    sf::String name;
+    sf::String DEFAULT_NAME = "XYZ";
+    sf::String name = DEFAULT_NAME;
 }
 
 void SnakeGame::DrawSaveRecordInputNameView(const Fonts& fonts, sf::RenderWindow& window)
@@ -33,7 +34,7 @@ void SnakeGame::SaveRecordEnterNameAppendString(sf::String& str)
 
 void SnakeGame::SaveRecordEnterNameEraseLastCharacter()
 {
-    if (name.getSize() > 1)
+    if (name.getSize() > 0)
     {
         name.erase(name.getSize() - 1, 1);
     }
@@ -46,5 +47,5 @@ sf::String SnakeGame::SaveRecordEnterNameGetName()
 
 void SnakeGame::SaveRecordEnterNameClear()
 {
-    name.clear();
+    name = DEFAULT_NAME;
 }
