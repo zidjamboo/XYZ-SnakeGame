@@ -12,6 +12,7 @@ namespace SnakeGame
         InitBackground(game);
         InitFonts(game);
         InitSoundResources(game);
+        InitTextureResources(game);
     }
 
     void RestartGame(Game& game)

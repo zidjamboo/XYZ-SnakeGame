@@ -11,6 +11,7 @@
 #include "../Sound/SoundSettings.h"
 #include "../View/Fonts/Fonts.h"
 #include "GameMode/GameMode.h"
+#include "../Texture/Textures.h"
 
 namespace SnakeGame
 {
@@ -19,6 +20,7 @@ namespace SnakeGame
         std::stack<GameState> stateStack;
 
         Background background;
+        Textures textures;
 
         Snake snake;
         Apple apple;
