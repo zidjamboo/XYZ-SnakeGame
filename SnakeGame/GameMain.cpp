@@ -46,5 +46,7 @@ int main()
 		DrawGame(game, window);
 	}
 
+	Deinitialize(game);
+
 	return 0;
 }

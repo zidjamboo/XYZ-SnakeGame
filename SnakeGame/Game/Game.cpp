@@ -1,6 +1,7 @@
 ﻿#include "Game.h"
 
 #include "../Field/Field.h"
+#include "../Persistence/ScoreTablePersistence.h"
 #include "../View/ScoreTopPanel/ScoreTopPanel.h"
 
 namespace SnakeGame
@@ -13,6 +14,7 @@ namespace SnakeGame
         InitFonts(game);
         InitSoundResources(game);
         InitTextureResources(game);
+        LoadScoreTable(game.savedScores);
     }
 
     void RestartGame(Game& game)
@@ -42,5 +44,10 @@ namespace SnakeGame
         window.clear();
         TopGameState(game).onDraw(game, window);
         window.display();
+    }
+
+    void Deinitialize(Game& game)
+    {
+        SaveScoreTable(game.savedScores);
     }
 }
